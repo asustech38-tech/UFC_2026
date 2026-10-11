@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>English for Global Business: Navigating the International Environment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            ch1: '#f0f9ff', // Light Sky Blue for Lesson 1
+            ch2: '#ecfdf5', // Light Emerald for Lesson 2
+            ch3: '#fffbeb', // Light Amber for Lesson 3
+            ch4: '#eef2ff', // Light Indigo for Lesson 4
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    .section-anchor { scroll-margin-top: 80px; }
+    
+    /* Typography formatting */
+    .prose p { margin-bottom: 1rem; color: #334155; line-height: 1.6; }
+    .prose ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; color: #334155; }
+    .prose li { margin-bottom: 0.5rem; }
+
+    .card { background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(0,0,0,0.05); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    
+    .num-badge { display: inline-flex; align-items: center; justify-content: center; background: #1e293b; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-right: 10px; letter-spacing: 0.05em; }
+    
+    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+    .data-table th { background: #f8fafc; font-weight: 600; text-align: left; padding: 14px 16px; border-bottom: 2px solid #e2e8f0; color: #0f172a; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .data-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; color: #475569; font-size: 0.9rem; line-height: 1.5; }
+    .data-table tr:last-child td { border-bottom: none; }
+    
+    /* Case Study Box */
+    .case-box { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 24px; position: relative; overflow: hidden; }
+    .case-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .case-box.ch1-case::before { background: #0ea5e9; }
+    .case-box.ch2-case::before { background: #10b981; }
+    .case-box.ch3-case::before { background: #f59e0b; }
+    .case-box.ch4-case::before { background: #6366f1; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200">
+
+  <!-- Navigation -->
+  <nav class="glass-nav fixed w-full z-50 border-b border-slate-200 top-0 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <i class="fa-solid fa-globe text-blue-600 text-2xl"></i>
+          <span class="font-bold text-lg tracking-tight text-slate-900 hidden md:block">English for Global Business</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#intro" class="text-slate-600 hover:text-blue-600 px-2 py-2 text-sm font-semibold transition-colors">Course Info</a>
+          <a href="#lesson1" class="text-sky-600 hover:text-sky-800 px-2 py-2 text-sm font-semibold transition-colors">L1: Definitions</a>
+          <a href="#lesson2" class="text-emerald-600 hover:text-emerald-800 px-2 py-2 text-sm font-semibold transition-colors">L2: Listening</a>
+          <a href="#lesson3" class="text-amber-600 hover:text-amber-800 px-2 py-2 text-sm font-semibold transition-colors">L3: Reading</a>
+          <a href="#lesson4" class="text-indigo-600 hover:text-indigo-800 px-2 py-2 text-sm font-semibold transition-colors">L4: Speaking & Writing</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="intro" class="section-anchor pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-6 uppercase tracking-wider border border-slate-200">
+      <i class="fa-solid fa-earth-americas"></i> Professional Business English Curriculum
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+      English for Global Business: <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">Navigating the International Environment</span>
+    </h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      A comprehensive guide designed to equip professionals with the vocabulary, concepts, and communication skills required to operate successfully in the complex and dynamic global market.
+    </p>
+  </header>
+
+  <!-- LESSON 1 -->
+  <section id="lesson1" class="section-anchor bg-ch1 border-y border-sky-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-sky-600 font-bold tracking-widest uppercase text-xs bg-sky-100 px-2 py-1 rounded">Lesson 1</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">The Global Business Environment</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Understanding the fundamental definitions, micro/macro factors, and the forces driving globalization and international trade.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        
+        <!-- 1.1 & 1.2 Core Definitions -->
+        <div class="card border-l-4 border-l-sky-500">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-sky-600">1.1</span> Defining the Environment</h3>
+          <p class="text-sm text-slate-600 mb-4"><strong>The Business Environment</strong> refers to the conditions, factors, and forces that influence the activities, decisions, and development of an organization. A business does not operate in isolation.</p>
+          
+          <div class="space-y-4">
+            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <h4 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-building text-sky-500"></i> Internal Environment</h4>
+              <p class="text-xs text-slate-600 mb-2">Factors within the organization influencing its performance.</p>
+              <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-sky-800">
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Employees</span>
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Management</span>
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Corporate Culture</span>
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Financial Resources</span>
+              </div>
+            </div>
+            
+            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+              <h4 class="text-sm font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-earth-europe text-sky-500"></i> External Environment</h4>
+              <p class="text-xs text-slate-600 mb-2">Factors outside the organization influencing its activities.</p>
+              <div class="flex flex-wrap gap-2 text-[10px] font-semibold text-sky-800">
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Customers</span>
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Competitors</span>
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Government</span>
+                <span class="bg-white px-2 py-1 rounded border border-slate-200">Economic Conditions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1.3 Micro vs Macro (PESTLE) -->
+        <div class="flex flex-col gap-6">
+          <div class="card h-full border-t-4 border-t-sky-400">
+            <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-sky-600">1.2</span> Micro vs. Macro Environment</h3>
+            
+            <p class="text-sm font-bold text-slate-800 mb-2">Micro-Environment (Direct Effect)</p>
+            <p class="text-xs text-slate-600 mb-4">Includes Customers, Suppliers, Competitors, Distributors, and Business Partners.</p>
+            
+            <p class="text-sm font-bold text-slate-800 mb-2">Macro-Environment (Broader Forces)</p>
+            <p class="text-xs text-slate-600 mb-3">Analyzed using the <strong>PESTLE</strong> framework:</p>
+            
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="bg-sky-50 p-2 rounded border border-sky-100"><strong class="text-sky-800">P - Political:</strong> Government policy</div>
+              <div class="bg-sky-50 p-2 rounded border border-sky-100"><strong class="text-sky-800">E - Economic:</strong> Inflation, unemployment</div>
+              <div class="bg-sky-50 p-2 rounded border border-sky-100"><strong class="text-sky-800">S - Social:</strong> Consumer lifestyles</div>
+              <div class="bg-sky-50 p-2 rounded border border-sky-100"><strong class="text-sky-800">T - Technological:</strong> AI, automation</div>
+              <div class="bg-sky-50 p-2 rounded border border-sky-100"><strong class="text-sky-800">L - Legal:</strong> Employment legislation</div>
+              <div class="bg-sky-50 p-2 rounded border border-sky-100"><strong class="text-sky-800">E - Environmental:</strong> Climate change</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Globalization and MNCs -->
+      <div class="card mb-10">
+        <h3 class="text-2xl font-bold mb-4 flex items-center"><span class="num-badge bg-sky-600">1.3</span> Globalization & Multinational Companies (MNCs)</h3>
+        <p class="text-sm text-slate-600 mb-6"><strong>Globalization</strong> refers to the increasing interconnectedness and interdependence of countries, economies, organizations, and people, driven by international trade, technology, and digital platforms.</p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-3 border-b border-slate-200 pb-1">Domestic vs. International Business</h4>
+            <table class="data-table !mb-0 text-xs">
+              <thead><tr><th class="w-1/2">Domestic</th><th>International</th></tr></thead>
+              <tbody>
+                <tr><td>Operates primarily within one country.</td><td class="font-semibold text-sky-800 bg-sky-50">Conducts activities across national borders.</td></tr>
+                <tr><td>Single currency and legal system.</td><td class="font-semibold text-sky-800 bg-sky-50">Manages different currencies, cultures, laws, and political conditions.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+            <h4 class="text-sm font-bold text-slate-800 mb-2">Multinational Companies (MNCs)</h4>
+            <p class="text-xs text-slate-600 mb-3">An organization that operates in more than one country. An MNC may:</p>
+            <ul class="text-xs text-slate-700 space-y-1 pl-4 list-disc">
+              <li>Produce goods in different countries.</li>
+              <li>Establish foreign subsidiaries.</li>
+              <li>Manage complex international supply chains.</li>
+              <li>Employ workers in different cultural settings.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opportunities vs Threats & Grammar -->
+      <div class="grid lg:grid-cols-12 gap-8">
+        <div class="col-span-12 lg:col-span-7 card border-t-4 border-t-emerald-400">
+          <h3 class="text-lg font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-sky-600">1.4</span> Global Business: Opportunities vs. Challenges</h3>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+              <h4 class="text-sm font-bold text-emerald-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-arrow-trend-up"></i> Opportunities</h4>
+              <ul class="text-[11px] text-slate-700 space-y-1.5 pl-4 list-disc">
+                <li><strong>Market Expansion:</strong> Reaching new international customers.</li>
+                <li><strong>Access to Resources:</strong> Global suppliers, tech, and skills.</li>
+                <li><strong>Economies of Scale:</strong> Large-scale production reduces average costs.</li>
+                <li><strong>Diversification:</strong> Reducing dependence on a single domestic market.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-rose-50 p-4 rounded-lg border border-rose-100">
+              <h4 class="text-sm font-bold text-rose-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Challenges (Threats)</h4>
+              <ul class="text-[11px] text-slate-700 space-y-1.5 pl-4 list-disc">
+                <li><strong>Cultural Differences:</strong> Varied consumer behavior and business etiquette.</li>
+                <li><strong>Currency Fluctuations:</strong> Exchange rate changes affecting profits.</li>
+                <li><strong>Legal Differences:</strong> Complying with foreign regulations.</li>
+                <li><strong>Political Uncertainty:</strong> Instability or economic crises abroad.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grammar Box -->
+        <div class="col-span-12 lg:col-span-5 case-box ch1-case !bg-slate-900 shadow-xl">
+          <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2"><i class="fa-solid fa-language text-sky-400 mr-2"></i> 1.5 Language Focus</h3>
+          <p class="text-[11px] text-slate-300 mb-3">Essential grammatical structures for discussing global business:</p>
+          
+          <div class="space-y-3">
+            <div class="bg-slate-800 p-2 rounded border-l-2 border-sky-400">
+              <div class="text-[10px] font-bold text-sky-300 uppercase tracking-wider mb-1">Present Simple (Facts/Routines)</div>
+              <p class="text-xs text-white italic">"Companies <span class="text-sky-300 font-bold">operate</span> in competitive markets."</p>
+            </div>
+            
+            <div class="bg-slate-800 p-2 rounded border-l-2 border-emerald-400">
+              <div class="text-[10px] font-bold text-emerald-300 uppercase tracking-wider mb-1">Present Continuous (Trends)</div>
+              <p class="text-xs text-white italic">"Businesses <span class="text-emerald-300 font-bold">are expanding</span> into new markets."</p>
+            </div>
+            
+            <div class="bg-slate-800 p-2 rounded border-l-2 border-amber-400">
+              <div class="text-[10px] font-bold text-amber-300 uppercase tracking-wider mb-1">Future Forms (Predictions/Plans)</div>
+              <p class="text-xs text-white italic">"Global competition <span class="text-amber-300 font-bold">will increase</span>."</p>
+            </div>
+
+            <div class="bg-slate-800 p-2 rounded border-l-2 border-purple-400">
+              <div class="text-[10px] font-bold text-purple-300 uppercase tracking-wider mb-1">Modals (Ability/Obligation)</div>
+              <p class="text-xs text-white italic">"Companies <span class="text-purple-300 font-bold">must comply</span> with local regulations, but they <span class="text-purple-300 font-bold">should analyse</span> the market first."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- LESSON 2 -->
+  <section id="lesson2" class="section-anchor bg-ch2 border-y border-emerald-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-emerald-600 font-bold tracking-widest uppercase text-xs bg-emerald-100 px-2 py-1 rounded">Lesson 2</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Listening Comprehension: Going Global</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Analyzing a real-world case study on international expansion, focusing on the challenges faced by foreign founders and the keys to navigating a new business environment.</p>
+      </div>
+
+      <!-- Sendbird Case Study -->
+      <div class="case-box ch2-case shadow-xl mb-10">
+        <div class="flex items-center gap-4 border-b border-slate-700 pb-4 mb-6">
+          <div class="w-14 h-14 bg-emerald-500 rounded-lg flex items-center justify-center text-white text-2xl shadow-lg shrink-0">
+            <i class="fa-solid fa-headphones"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white"><span class="text-emerald-400">2.1 Case Study:</span> Building a $1B Business</h3>
+            <p class="text-sm text-slate-400 mt-1">Based on the video presentation by John Kim, Co-founder of Sendbird.</p>
+          </div>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-sm font-bold text-emerald-300 mb-3 uppercase tracking-wider">Background & Context</h4>
+            <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 mb-4">
+              <ul class="text-sm text-slate-300 space-y-3">
+                <li class="flex items-start gap-2"><i class="fa-solid fa-user-tie text-emerald-500 mt-1 w-4"></i> <span><strong>Founder:</strong> John Kim, Co-founder of Sendbird.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-map-location-dot text-emerald-500 mt-1 w-4"></i> <span><strong>Expansion Path:</strong> The company started in South Korea and decided to expand to the United States.</span></li>
+                <li class="flex items-start gap-2"><i class="fa-solid fa-rocket text-emerald-500 mt-1 w-4"></i> <span><strong>Reason:</strong> Seeking a larger global market and access to international investment opportunities.</span></li>
+              </ul>
+            </div>
+            
+            <h4 class="text-sm font-bold text-rose-300 mb-3 uppercase tracking-wider">Challenges Faced</h4>
+            <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700">
+              <p class="text-sm text-slate-300 leading-relaxed">As a foreign founder entering the U.S. market, John Kim faced significant hurdles, including <strong>language barriers</strong>, cultural differences in business etiquette, and a lack of an existing network. Having a good product alone was <em>not enough</em> to succeed without adapting to the new environment.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col h-full">
+            <h4 class="text-sm font-bold text-sky-300 mb-3 uppercase tracking-wider">Key Lessons Learned</h4>
+            <div class="space-y-4 flex-1">
+              <div class="bg-slate-800 p-3 rounded-lg border-l-4 border-sky-400">
+                <h5 class="font-bold text-sm text-white mb-1">1. Customer Understanding</h5>
+                <p class="text-xs text-slate-400">A company cannot simply copy its domestic strategy. It must deeply understand local customer needs and adapt the product accordingly.</p>
+              </div>
+              <div class="bg-slate-800 p-3 rounded-lg border-l-4 border-amber-400">
+                <h5 class="font-bold text-sm text-white mb-1">2. Communication is Critical</h5>
+                <p class="text-xs text-slate-400">Building relationships and communicating effectively with local stakeholders, partners, and customers is just as important as the technology itself.</p>
+              </div>
+              <div class="bg-slate-800 p-3 rounded-lg border-l-4 border-purple-400">
+                <h5 class="font-bold text-sm text-white mb-1">3. The Reality of "Going Global"</h5>
+                <p class="text-xs text-slate-400">Foreign founders often face unconscious biases and difficulties. Overcoming these requires resilience, careful planning, and a willingness to learn the unwritten rules of the new market.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Comprehension Check -->
+      <div class="card border-t-4 border-t-emerald-500">
+        <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-emerald-600">2.2</span> Comprehension Analysis</h3>
+        <p class="text-sm text-slate-600 mb-4">Evaluating statements based on the Sendbird international expansion case:</p>
+        
+        <table class="w-full text-sm text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200">
+              <th class="p-3 font-semibold text-slate-800 w-3/5">Statement</th>
+              <th class="p-3 font-semibold text-slate-800 text-center w-1/5">T/F</th>
+              <th class="p-3 font-semibold text-slate-800 w-1/5">Correction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-100">
+              <td class="p-3 text-slate-600">John Kim started his entrepreneurial journey in the United States.</td>
+              <td class="p-3 text-center font-bold text-rose-600">F</td>
+              <td class="p-3 text-xs text-slate-500">He started in South Korea before expanding.</td>
+            </tr>
+            <tr class="border-b border-slate-100 bg-slate-50/50">
+              <td class="p-3 text-slate-600">Having a good product alone was enough to succeed in a foreign market.</td>
+              <td class="p-3 text-center font-bold text-rose-600">F</td>
+              <td class="p-3 text-xs text-slate-500">Adaptation and relationships were required.</td>
+            </tr>
+            <tr class="border-b border-slate-100">
+              <td class="p-3 text-slate-600">Sendbird's international expansion was based entirely on the same approach used in its original market.</td>
+              <td class="p-3 text-center font-bold text-rose-600">F</td>
+              <td class="p-3 text-xs text-slate-500">They had to adapt their strategy for US customers.</td>
+            </tr>
+            <tr class="bg-emerald-50/30">
+              <td class="p-3 text-slate-800 font-medium">Understanding customers was an important part of developing the company's international strategy.</td>
+              <td class="p-3 text-center font-bold text-emerald-600">T</td>
+              <td class="p-3 text-xs text-slate-500">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LESSON 3 -->
+  <section id="lesson3" class="section-anchor bg-ch3 border-y border-amber-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-amber-600 font-bold tracking-widest uppercase text-xs bg-amber-100 px-2 py-1 rounded">Lesson 3</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Reading: Doing Business in a Globalized World</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Extracting key concepts regarding supply chains, macroeconomic influences, and vocabulary essential for international operations.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <!-- 3.1 Text Analysis -->
+        <div class="col-span-12 lg:col-span-8 card h-full">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-amber-600">3.1</span> Text Analysis & Key Concepts</h3>
+          
+          <div class="space-y-4">
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+              <h4 class="text-sm font-bold text-slate-800 mb-2">The Impact of Globalization</h4>
+              <p class="text-sm text-slate-600">Globalization has increased the <strong>interconnectedness and interdependence</strong> of economies. A modern company may design a product in one country, source materials globally, manufacture elsewhere, and sell worldwide. This highlights the critical importance of <em>global supply chains</em>.</p>
+            </div>
+            
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+              <h4 class="text-sm font-bold text-slate-800 mb-2">Multinational Companies (MNCs)</h4>
+              <p class="text-sm text-slate-600">MNCs coordinate activities across markets to access new customers, technologies, and specialized skills. However, they face challenges such as managing international employees, complying with diverse legal systems, and adapting to local cultures.</p>
+            </div>
+
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <h4 class="text-sm font-bold text-amber-900 mb-2">Strategic Planning Requirement</h4>
+              <p class="text-sm text-amber-800">Entering a global market requires careful analysis of the target market, competitors, regulations, and risk assessment. Success depends heavily on the organization's ability to <em>understand and adapt</em> to its macro-environment.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.2 Vocab & Pronunciation -->
+        <div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+          <div class="card border-t-4 border-t-amber-500">
+            <h3 class="text-lg font-bold mb-3 border-b border-slate-100 pb-2"><span class="num-badge bg-amber-600">3.2</span> Business Vocabulary</h3>
+            <ul class="text-xs text-slate-700 space-y-3">
+              <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                <strong class="text-slate-900">Competitor:</strong> <span class="text-right">A rival company in the same market.</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                <strong class="text-slate-900">Supplier:</strong> <span class="text-right">Provider of goods/services.</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                <strong class="text-slate-900">Regulation:</strong> <span class="text-right">Official rules controlling business.</span>
+              </li>
+              <li class="flex justify-between items-center border-b border-slate-100 pb-1">
+                <strong class="text-slate-900">Stakeholder:</strong> <span class="text-right">Person/org affected by a business.</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <strong class="text-slate-900">Market:</strong> <span class="text-right">System of exchange (buyers/sellers).</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card bg-slate-900 text-white h-full border-none">
+            <h3 class="text-lg font-bold mb-3 border-b border-slate-700 pb-2"><span class="num-badge bg-slate-600 text-white">3.3</span> Pronunciation (Stress)</h3>
+            <p class="text-[11px] text-slate-300 mb-3">Identifying the stressed syllable in key terminology:</p>
+            <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+              <div class="bg-slate-800 p-1.5 rounded text-center">BUS-i-ness</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center">MAR-ket</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center">CUS-to-mer</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center">sup-PLI-er</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center">com-PET-i-tor</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center">in-vest-MENT</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center col-span-2 text-amber-300">mul-ti-NA-tion-al</div>
+              <div class="bg-slate-800 p-1.5 rounded text-center col-span-2 text-emerald-300">glo-bal-i-ZA-tion</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LESSON 4 -->
+  <section id="lesson4" class="section-anchor bg-ch4 border-t border-indigo-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-indigo-600 font-bold tracking-widest uppercase text-xs bg-indigo-100 px-2 py-1 rounded">Lesson 4</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Speaking & Written Communication</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Applying theoretical knowledge through practical role-play, drafting professional recommendations, and designing an international market-entry strategy.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        
+        <!-- 4.1 Speaking Part -->
+        <div class="card border-t-4 border-t-indigo-500">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-indigo-600">4.1</span> Speaking & Role-Play</h3>
+          
+          <div class="mb-6">
+            <h4 class="text-sm font-bold text-slate-800 mb-2">Discussion: Is globalization more beneficial to large companies or small businesses?</h4>
+            <div class="bg-slate-50 p-3 rounded border border-slate-200 text-xs">
+              <strong class="text-indigo-700 block mb-1">Useful Expressions for Debate:</strong>
+              <ul class="list-disc pl-4 space-y-1 text-slate-600 font-mono">
+                <li>"In my opinion..." / "I believe that..."</li>
+                <li>"One major advantage is..." / "Another benefit is..."</li>
+                <li>"However..." / "One possible challenge is..."</li>
+                <li>"I agree because..." / "I disagree because..."</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-2">Role Play: Entering a Foreign Market</h4>
+            <div class="flex gap-4">
+              <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 flex-1">
+                <strong class="text-blue-800 text-xs block mb-1">Student A: Business Manager</strong>
+                <p class="text-[10px] text-slate-600">You want your company to enter a foreign market and are seeking strategic advice.</p>
+              </div>
+              <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 flex-1">
+                <strong class="text-emerald-800 text-xs block mb-1">Student B: Consultant</strong>
+                <p class="text-[10px] text-slate-600">Advise the manager on market opportunities, competition, culture, and regulatory risks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4.2 Written Comm -->
+        <div class="card bg-slate-900 text-white border-none shadow-xl">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-700 pb-2"><span class="num-badge bg-indigo-500 text-white">4.2</span> Written Comprehension</h3>
+          <p class="text-sm text-slate-300 mb-4">Drafting a professional recommendation for market expansion (150-180 words). The document must clearly communicate:</p>
+          
+          <div class="space-y-3 pl-2">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-check-circle text-indigo-400"></i>
+              <span class="text-sm font-semibold">A definitive stance (enter / do not enter).</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i>
+              <span class="text-sm font-semibold">Identification of the primary market opportunity.</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-triangle-exclamation text-rose-400"></i>
+              <span class="text-sm font-semibold">Identification of the most significant challenge/risk.</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-list-check text-amber-400"></i>
+              <span class="text-sm font-semibold">Actionable steps to take prior to entry.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4.3 Mini Project -->
+      <div class="case-box ch4-case shadow-xl">
+        <div class="flex items-center gap-3 mb-4 border-b border-slate-700 pb-4">
+          <div class="w-12 h-12 bg-indigo-500 rounded flex items-center justify-center text-white text-xl shadow-lg"><i class="fa-solid fa-plane-departure"></i></div>
+          <div>
+            <h3 class="text-xl font-bold text-white"><span class="text-indigo-400">4.3 Practical Project:</span> International Market Entry</h3>
+            <p class="text-xs text-slate-400">A comprehensive 9-step framework for planning global expansion.</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-indigo-400 text-center">
+            <div class="font-bold text-xs text-indigo-300 mb-1">1. Profile</div>
+            <p class="text-[9px] text-slate-400">Define the company.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-indigo-400 text-center">
+            <div class="font-bold text-xs text-indigo-300 mb-1">2. Target Market</div>
+            <p class="text-[9px] text-slate-400">Select foreign destination.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-indigo-400 text-center">
+            <div class="font-bold text-xs text-indigo-300 mb-1">3. Justification</div>
+            <p class="text-[9px] text-slate-400">Reasons for expansion.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-indigo-400 text-center">
+            <div class="font-bold text-xs text-indigo-300 mb-1">4. Customers</div>
+            <p class="text-[9px] text-slate-400">Identify target audience.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-indigo-400 text-center">
+            <div class="font-bold text-xs text-indigo-300 mb-1">5. Competitors</div>
+            <p class="text-[9px] text-slate-400">Analyze local rivals.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-emerald-400 text-center">
+            <div class="font-bold text-xs text-emerald-300 mb-1">6. Opportunities</div>
+            <p class="text-[9px] text-slate-400">Potential growth areas.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-rose-400 text-center">
+            <div class="font-bold text-xs text-rose-300 mb-1">7. Challenges</div>
+            <p class="text-[9px] text-slate-400">Cultural & legal risks.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-amber-400 text-center">
+            <div class="font-bold text-xs text-amber-300 mb-1">8. Resources</div>
+            <p class="text-[9px] text-slate-400">Financial/Human capital.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border-t-2 border-sky-400 text-center lg:col-span-2">
+            <div class="font-bold text-xs text-sky-300 mb-1">9. Strategy & Recommendation</div>
+            <p class="text-[9px] text-slate-400">Proposed entry mode and final verdict.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t-4 border-blue-500">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border border-slate-700">
+        <i class="fa-solid fa-briefcase text-2xl text-blue-400"></i>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-4">Course Conclusion</h2>
+      <p class="text-sm italic text-slate-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+        "Successful international business depends not only on the quality of a product or service, but crucially on the organization's ability to understand, communicate with, and adapt to its diverse global environment."
+      </p>
+      <p class="text-xs text-slate-500 tracking-wider uppercase">
+        &copy; English for Global Business Curriculum
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

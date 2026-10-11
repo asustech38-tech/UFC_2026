@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Quantitative Data Analysis for Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            ch1: '#f8fafc', // Light Slate for Chapter 1
+            ch2: '#f0fdf4', // Light Green for Chapter 2
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    .section-anchor { scroll-margin-top: 70px; }
+    
+    .card { background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(0,0,0,0.05); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    
+    .num-badge { display: inline-flex; align-items: center; justify-content: center; background: #1e293b; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-right: 10px; letter-spacing: 0.05em; }
+    
+    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+    .data-table th { background: #f8fafc; font-weight: 600; text-align: left; padding: 14px 16px; border-bottom: 2px solid #e2e8f0; color: #0f172a; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .data-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; color: #475569; font-size: 0.9rem; line-height: 1.5; }
+    .data-table tr:last-child td { border-bottom: none; }
+    
+    /* Mathematical/Practice Box */
+    .practice-box { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 24px; position: relative; overflow: hidden; }
+    .practice-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .practice-box.ch1-case::before { background: #3b82f6; }
+    .practice-box.ch2-case::before { background: #10b981; }
+    
+    /* Flowchart Node Styles */
+    .flow-node { background: white; border: 2px solid #cbd5e1; border-radius: 8px; padding: 12px; text-align: center; font-size: 0.8rem; font-weight: 600; color: #334155; position: relative; }
+    .flow-arrow { width: 2px; height: 20px; background: #cbd5e1; margin: 0 auto; position: relative; }
+    .flow-arrow::after { content: ''; position: absolute; bottom: -4px; left: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #cbd5e1; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200">
+
+  <!-- Navigation -->
+  <nav class="glass-nav fixed w-full z-50 border-b border-slate-200 top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <i class="fa-solid fa-chart-simple text-blue-600 text-2xl"></i>
+          <span class="font-bold text-lg tracking-tight text-slate-900 hidden md:block">Quantitative Data Analysis</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#intro" class="text-slate-600 hover:text-blue-600 px-2 py-2 text-sm font-semibold transition-colors">Intro</a>
+          <a href="#chapter1" class="text-blue-600 hover:text-blue-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 1: Foundations</a>
+          <a href="#chapter2" class="text-emerald-600 hover:text-emerald-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 2: Data Management</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="intro" class="section-anchor pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-6 uppercase tracking-wider border border-slate-200">
+      <i class="fa-solid fa-graduation-cap"></i> Master 2 | English for Management
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+      Quantitative Data Analysis: <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">for Management Decisions</span>
+    </h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      A comprehensive guide to designing research, collecting data, selecting sampling methods, and systematically managing and preparing datasets for statistical analysis in business contexts.
+    </p>
+  </header>
+
+  <!-- CHAPTER 1 -->
+  <section id="chapter1" class="section-anchor bg-ch1 border-y border-slate-200 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-blue-600 font-bold tracking-widest uppercase text-xs bg-blue-100 px-2 py-1 rounded">Chapter 1</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Foundations of Research in Management</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Understanding the fundamental role of research design, distinguishing between quantitative and qualitative methodologies, and framing testable hypotheses.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        <!-- 1.1 Role of Research -->
+        <div class="card border-t-4 border-t-blue-500">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-3"><span class="num-badge bg-blue-600">1.1</span> The Role of Research</h3>
+          <p class="text-sm text-slate-600 mb-4">Research is a systematic investigation to establish facts and draw conclusions. In the management context, research involves obtaining information and uncovering truths to improve managerial practice and decision-making.</p>
+          
+          <h4 class="text-sm font-bold text-slate-800 mb-2">1.1.2 Principles of Research Design</h4>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-slate-50 p-3 rounded border border-slate-200 text-center">
+              <i class="fa-solid fa-users-viewfinder text-blue-500 text-2xl mb-2"></i>
+              <h5 class="font-bold text-xs text-slate-800">Cross-sectional study</h5>
+              <p class="text-[10px] text-slate-500 mt-1">Data collected from a population at a specific, single point in time.</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded border border-slate-200 text-center">
+              <i class="fa-solid fa-timeline text-indigo-500 text-2xl mb-2"></i>
+              <h5 class="font-bold text-xs text-slate-800">Longitudinal study</h5>
+              <p class="text-[10px] text-slate-500 mt-1">Data collected repeatedly from the same sample over an extended period.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1.2 Quant vs Qual -->
+        <div class="card h-full">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-3"><span class="num-badge bg-blue-600">1.2.1</span> Quantitative vs. Qualitative</h3>
+          <table class="data-table !mb-0 text-xs">
+            <thead>
+              <tr><th class="w-1/5">Aspect</th><th class="w-2/5 text-blue-800 bg-blue-50">Quantitative</th><th class="w-2/5">Qualitative</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="font-semibold text-slate-800">Focus</td><td class="bg-blue-50/30">Numbers, statistics, measurement</td><td>Words, meanings, understanding</td></tr>
+              <tr><td class="font-semibold text-slate-800">Questions</td><td class="bg-blue-50/30">"To what extent?", "How much?"</td><td>"Why?" and "How?"</td></tr>
+              <tr><td class="font-semibold text-slate-800">Purpose</td><td class="bg-blue-50/30">Test hypotheses and validate theories</td><td>Explore ideas, perceptions, behaviors</td></tr>
+              <tr><td class="font-semibold text-slate-800">Collection</td><td class="bg-blue-50/30">Structured surveys, experiments, DBs</td><td>Open-ended interviews, focus groups</td></tr>
+              <tr><td class="font-semibold text-slate-800">Sampling</td><td class="bg-blue-50/30">Probability (aiming for generalizability)</td><td>Non-probability (aiming for depth)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 1.2.3 Research Process Flow -->
+      <div class="card mb-10 border-t-4 border-t-indigo-500">
+        <h3 class="text-xl font-bold mb-6 text-center"><span class="num-badge bg-indigo-600">1.2.3</span> The Quantitative Research Process</h3>
+        
+        <div class="flex flex-col md:flex-row justify-between items-start gap-2">
+          <div class="text-center w-full md:w-1/6">
+            <div class="flow-node border-indigo-300 bg-indigo-50 text-indigo-900 shadow-sm">1. Identify Problem</div>
+            <p class="text-[9px] text-slate-500 mt-2 px-1">Define issue & review literature.</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 hidden md:block mt-4"></i>
+          
+          <div class="text-center w-full md:w-1/6">
+            <div class="flow-node border-indigo-300 bg-indigo-50 text-indigo-900 shadow-sm">2. Formulate Q's</div>
+            <p class="text-[9px] text-slate-500 mt-2 px-1">Develop hypotheses from questions.</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 hidden md:block mt-4"></i>
+          
+          <div class="text-center w-full md:w-1/6">
+            <div class="flow-node border-indigo-300 bg-indigo-50 text-indigo-900 shadow-sm">3. Design Research</div>
+            <p class="text-[9px] text-slate-500 mt-2 px-1">Select approach & sampling plan.</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 hidden md:block mt-4"></i>
+          
+          <div class="text-center w-full md:w-1/6">
+            <div class="flow-node border-indigo-400 bg-indigo-100 text-indigo-900 shadow-sm font-bold">4. Collect Data</div>
+            <p class="text-[9px] text-slate-500 mt-2 px-1">Deploy instruments & gather primary/secondary data.</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 hidden md:block mt-4"></i>
+          
+          <div class="text-center w-full md:w-1/6">
+            <div class="flow-node border-indigo-400 bg-indigo-100 text-indigo-900 shadow-sm font-bold">5. Analyze Data</div>
+            <p class="text-[9px] text-slate-500 mt-2 px-1">Clean data & apply statistics.</p>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-300 hidden md:block mt-4"></i>
+          
+          <div class="text-center w-full md:w-1/6">
+            <div class="flow-node border-indigo-500 bg-indigo-500 text-white shadow-md">6. Report Findings</div>
+            <p class="text-[9px] text-slate-500 mt-2 px-1">Interpret results & advise management.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variables & Hypotheses -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        
+        <div class="card h-full">
+          <h3 class="text-lg font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-blue-500">1.2.4</span> Hypotheses Formulation</h3>
+          <p class="text-xs text-slate-600 mb-3">A hypothesis is a tentative proposition about the relationship between two or more variables, formulated for empirical testing.</p>
+          
+          <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-4">
+            <h4 class="font-bold text-sm text-slate-800 mb-2">Example Structure:</h4>
+            <p class="text-[11px] text-slate-500 mb-1"><strong>Research Question:</strong> Does employee training improve productivity?</p>
+            <div class="space-y-2 mt-2">
+              <div class="bg-white p-2 rounded border-l-2 border-red-400 text-xs">
+                <span class="font-bold text-slate-800">Null Hypothesis (H₀):</span> There is no significant difference in productivity between trained and untrained employees.
+              </div>
+              <div class="bg-white p-2 rounded border-l-2 border-emerald-400 text-xs">
+                <span class="font-bold text-slate-800">Alternative (H₁):</span> Trained employees have significantly higher productivity than untrained employees.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="text-lg font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-blue-500">1.2.5</span> Types of Variables & Scales</h3>
+          
+          <div class="grid grid-cols-2 gap-3 mb-4 text-xs">
+            <div class="bg-blue-50 p-2 rounded border border-blue-100"><strong class="text-blue-800 block">Independent Variable (IV)</strong>Manipulated or controlled to measure its impact.</div>
+            <div class="bg-emerald-50 p-2 rounded border border-emerald-100"><strong class="text-emerald-800 block">Dependent Variable (DV)</strong>Expected to change in response to the IV; the outcome.</div>
+            <div class="bg-slate-50 p-2 rounded border border-slate-200"><strong class="text-slate-800 block">Mediating Variable</strong>Transmits the effect between IV and DV.</div>
+            <div class="bg-slate-50 p-2 rounded border border-slate-200"><strong class="text-slate-800 block">Confounding Variable</strong>Extraneous variable that correlates with both, distorting results.</div>
+          </div>
+
+          <h4 class="font-bold text-xs text-slate-800 mb-2">Measurement Scales:</h4>
+          <ul class="text-[10px] text-slate-600 space-y-1 pl-4 list-disc">
+            <li><strong>Nominal:</strong> Categories without order (e.g., Gender, Department).</li>
+            <li><strong>Ordinal:</strong> Ordered categories, unequal intervals (e.g., Satisfaction rankings).</li>
+            <li><strong>Interval:</strong> Ordered, equal intervals, no true zero (e.g., Temperature).</li>
+            <li><strong>Ratio:</strong> Ordered, equal intervals, true zero (e.g., Revenue, Age).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ethics -->
+      <div class="card bg-slate-900 text-white border-none shadow-lg">
+        <h3 class="text-xl font-bold mb-4 flex items-center text-white"><span class="num-badge bg-red-500">1.3</span> Ethical Considerations in Research</h3>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-sm font-bold text-red-300 mb-2 border-b border-slate-700 pb-1">Core Principles</h4>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc pl-4">
+              <li><strong>Informed Consent:</strong> Voluntary agreement with full information.</li>
+              <li><strong>Confidentiality:</strong> Protecting participant identities.</li>
+              <li><strong>Avoidance of Harm:</strong> No physical/psychological damage.</li>
+              <li><strong>Honesty:</strong> Accurate reporting without fabrication.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-red-300 mb-2 border-b border-slate-700 pb-1">Common Ethical Violations</h4>
+            <ul class="text-xs text-slate-300 space-y-1.5 list-disc pl-4">
+              <li><strong>Data Manipulation:</strong> Selectively reporting results (p-hacking).</li>
+              <li><strong>Sample Bias:</strong> Selecting samples that intentionally skew results.</li>
+              <li><strong>Misuse of Data:</strong> Using data for uncommunicated purposes.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CHAPTER 2 -->
+  <section id="chapter2" class="section-anchor bg-ch2 border-t border-slate-200 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-emerald-600 font-bold tracking-widest uppercase text-xs bg-emerald-100 px-2 py-1 rounded">Chapter 2</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Data Collection and Management</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Designing appropriate sampling strategies, capturing data, and executing the critical data cleaning and coding phases required before analysis.</p>
+      </div>
+
+      <!-- 2.1 Data Collection -->
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <div class="col-span-12 lg:col-span-4 card h-full border-t-4 border-t-emerald-500">
+          <h3 class="text-lg font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-emerald-600">2.1</span> Primary vs Secondary Data</h3>
+          
+          <h4 class="font-bold text-sm text-slate-800 mb-1">1. Primary Data</h4>
+          <p class="text-xs text-slate-600 mb-3">Collected specifically for the current research. Highly relevant but consumes time and money.</p>
+          <ul class="text-[10px] text-slate-600 space-y-1 pl-4 list-disc mb-4">
+            <li><strong>Observation:</strong> Structured (quantitative) or Participant (qualitative).</li>
+            <li><strong>Interviews:</strong> Structured, semi-structured, or unstructured.</li>
+            <li><strong>Questionnaires:</strong> Open and closed-ended prompts via mail, online, or SMS.</li>
+          </ul>
+
+          <h4 class="font-bold text-sm text-slate-800 mb-1">2. Secondary Data</h4>
+          <p class="text-xs text-slate-600 mb-2">Data previously collected by others for different purposes. Fast, but quality/relevance may vary.</p>
+          <div class="bg-emerald-50 p-2 rounded border border-emerald-100 text-[10px] text-emerald-800">
+            <strong>Ex:</strong> Internal company records, Gov statistics, Academic DBs (Compustat).
+          </div>
+        </div>
+
+        <!-- 2.2 Sampling -->
+        <div class="col-span-12 lg:col-span-8 card">
+          <h3 class="text-lg font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-emerald-600">2.2</span> Sampling Methods</h3>
+          <p class="text-xs text-slate-600 mb-4">Sampling is more practical, less expensive, and faster than conducting a full population Census.</p>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-bold text-sm text-emerald-700 mb-2 bg-emerald-50 px-2 py-1 rounded">Probability Sampling</h4>
+              <p class="text-[10px] text-slate-500 mb-3">Every element has a known, non-zero probability of selection. Allows statistical generalization.</p>
+              <ul class="text-xs text-slate-700 space-y-2">
+                <li><strong>Simple Random:</strong> Equal chance of selection (e.g., random employee survey).</li>
+                <li><strong>Systematic:</strong> Selecting every kth element from a list.</li>
+                <li><strong>Stratified:</strong> Population divided into strata; random sampling from each.</li>
+                <li><strong>Cluster:</strong> Population divided into clusters; random selection of entire clusters.</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="font-bold text-sm text-slate-700 mb-2 bg-slate-100 px-2 py-1 rounded">Non-Probability Sampling</h4>
+              <p class="text-[10px] text-slate-500 mb-3">Probability of selection is unknown. Common in management when probability sampling is impractical.</p>
+              <ul class="text-xs text-slate-700 space-y-2">
+                <li><strong>Convenience:</strong> Selecting most accessible elements (Pilot studies).</li>
+                <li><strong>Purposive/Judgmental:</strong> Based on researcher's specific expertise requirements.</li>
+                <li><strong>Quota:</strong> Predetermined number from each subgroup based on demographics.</li>
+                <li><strong>Snowball:</strong> Initial participants refer others (for hard-to-reach populations).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Management Process -->
+      <div class="card mb-10 overflow-x-auto bg-slate-50 border border-slate-200">
+        <h3 class="text-xl font-bold mb-6 text-center"><span class="num-badge bg-slate-700">2.3</span> Data Management & Preparation Phases</h3>
+        
+        <div class="min-w-[800px] flex justify-between items-start pt-4 px-4 pb-8">
+          
+          <div class="flex-1 px-2 relative">
+            <div class="bg-blue-100 border-2 border-blue-400 p-3 rounded-lg text-center shadow-sm relative z-10">
+              <h4 class="font-bold text-blue-900 text-xs uppercase tracking-wider mb-1">Phase 1: Coding</h4>
+              <p class="text-[9px] text-slate-700">Assign Numerical Codes (e.g., 1=Male, 2=Female). Create Value Labels in software.</p>
+            </div>
+            <div class="absolute top-1/2 -right-4 w-8 h-1 bg-slate-300 z-0"></div>
+          </div>
+
+          <div class="flex-1 px-2 relative">
+            <div class="bg-blue-100 border-2 border-blue-400 p-3 rounded-lg text-center shadow-sm relative z-10">
+              <h4 class="font-bold text-blue-900 text-xs uppercase tracking-wider mb-1">Phase 2: Entry</h4>
+              <p class="text-[9px] text-slate-700">Enter data into SPSS/Excel. Ensure Accuracy via Double-Entry or Validation Rules.</p>
+            </div>
+            <div class="absolute top-1/2 -right-4 w-8 h-1 bg-slate-300 z-0"></div>
+          </div>
+
+          <div class="flex-1 px-2 relative">
+            <div class="bg-amber-100 border-2 border-amber-400 p-3 rounded-lg text-center shadow-sm relative z-10">
+              <h4 class="font-bold text-amber-900 text-xs uppercase tracking-wider mb-1">Phase 3: Cleaning</h4>
+              <p class="text-[9px] text-slate-700">Check Errors. Handle Missing Data (Mean Sub/Imputation). Address Outliers (Winsorize).</p>
+            </div>
+            <div class="absolute top-1/2 -right-4 w-8 h-1 bg-slate-300 z-0"></div>
+          </div>
+
+          <div class="flex-1 px-2 relative">
+            <div class="bg-teal-100 border-2 border-teal-400 p-3 rounded-lg text-center shadow-sm relative z-10">
+              <h4 class="font-bold text-teal-900 text-xs uppercase tracking-wider mb-1">Phase 4 & 5: Setup</h4>
+              <p class="text-[9px] text-slate-700">Compute New Variables. Recode. Check Normality (Q-Q Plots). Assess Multicollinearity.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Practice Activities -->
+      <div class="grid lg:grid-cols-2 gap-8">
+        
+        <div class="practice-box ch1-case shadow-xl">
+          <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2 flex items-center">
+            <i class="fa-solid fa-calculator text-blue-400 mr-3"></i> Activity 1: Simple Random Sample
+          </h3>
+          <div class="text-xs text-slate-300 space-y-3">
+            <p><strong>Context:</strong> A manufacturing company has 9,000 employees. A researcher wants to study job satisfaction using a sample of 450.</p>
+            <p><strong>Probability:</strong> 450 / 9,000 &rarr; 1 in 20. (Sampling fraction is n/N).</p>
+            <div class="bg-slate-800 p-3 rounded border border-slate-700">
+              <h4 class="font-bold text-blue-300 mb-1">Execution Steps:</h4>
+              <ol class="list-decimal pl-4 space-y-1">
+                <li>Define Population (N = 9,000 full-time employees).</li>
+                <li>Devise sampling frame (personnel records excluding part-timers).</li>
+                <li>Assign consecutive numbers 1 to 9,000.</li>
+                <li>Use a random number generator to select 450 unique numbers.</li>
+              </ol>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-2"><strong>Handling Random Tables:</strong> If a table generates 5-digit numbers (e.g., 09188, 90045, 73189), take the last four digits (9188, 0045, 3189). Discard numbers exceeding 9000 (like 9188) and select the valid ones.</p>
+          </div>
+        </div>
+
+        <div class="practice-box ch2-case shadow-xl">
+          <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2 flex items-center">
+            <i class="fa-solid fa-comments text-emerald-400 mr-3"></i> Activity 2: Interview Questions
+          </h3>
+          <div class="text-xs text-slate-300 space-y-4">
+            <p><strong>Application:</strong> Formulate professional responses for managerial data collection scenarios.</p>
+            
+            <div>
+              <h4 class="font-bold text-emerald-300 mb-1">Decision Making</h4>
+              <p class="italic text-slate-400 mb-1">"How do you assemble relevant data to make decisions? How do you know you have enough?"</p>
+              <div class="bg-slate-800 p-2 rounded border-l-2 border-emerald-500 text-[10px]">
+                <strong>Example Response:</strong> "I start by defining the core problem (Phase 1), then query internal ERP/CRM databases for structured historical data. I know I have enough data when the margin of error (E) in my sampling formula aligns with the required confidence level, and subsequent data points stop altering the descriptive trends significantly."
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-emerald-300 mb-1">Leadership & Execution</h4>
+              <p class="italic text-slate-400 mb-1">"When you recommend something to management, what approach do you usually use?"</p>
+              <div class="bg-slate-800 p-2 rounded border-l-2 border-emerald-500 text-[10px]">
+                <strong>Example Response:</strong> "I use a quantitative, evidence-based approach. I present visual descriptive statistics first to establish context, outline my hypothesis testing results to prove statistical significance, and conclude with clear, actionable business implications rather than just raw numbers."
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t-4 border-blue-500">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border border-slate-700">
+        <i class="fa-solid fa-chart-simple text-2xl text-blue-400"></i>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-4">Course Conclusion</h2>
+      <p class="text-sm italic text-slate-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+        "Effective management relies on transforming raw data into actionable insights. Understanding research design, robust sampling, and disciplined data management forms the critical foundation before any statistical software is opened."
+      </p>
+      <p class="text-[10px] text-slate-500 tracking-widest uppercase">
+        &copy; Quantitative Data Analysis Curriculum | Master 2
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

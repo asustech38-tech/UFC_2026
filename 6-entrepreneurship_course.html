@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Entrepreneurship: Concepts, Characteristics, and Business Models</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            ch1: '#fff1f2', // Light Rose for Chapter 1
+            ch2: '#f0f9ff', // Light Sky Blue for Chapter 2
+            ch3: '#fffbeb', // Light Amber for Chapter 3
+            ch4: '#ecfdf5', // Light Emerald for Chapter 4
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    .section-anchor { scroll-margin-top: 70px; }
+    
+    .card { background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(0,0,0,0.05); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    
+    .num-badge { display: inline-flex; align-items: center; justify-content: center; background: #1e293b; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-right: 10px; letter-spacing: 0.05em; }
+    
+    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+    .data-table th { background: #f8fafc; font-weight: 600; text-align: left; padding: 14px 16px; border-bottom: 2px solid #e2e8f0; color: #0f172a; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .data-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; color: #475569; font-size: 0.9rem; line-height: 1.5; }
+    .data-table tr:last-child td { border-bottom: none; }
+    
+    .case-box { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 24px; position: relative; overflow: hidden; }
+    .case-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .case-box.ch1-case::before { background: #f43f5e; }
+    .case-box.ch2-case::before { background: #0ea5e9; }
+    .case-box.ch3-case::before { background: #f59e0b; }
+    .case-box.ch4-case::before { background: #10b981; }
+
+    /* Business Model Canvas CSS Grid */
+    .bmc-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 10px; }
+    .bmc-block { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; }
+    .bmc-block-title { font-weight: 700; font-size: 0.75rem; color: #0f172a; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .bmc-block-text { font-size: 0.7rem; color: #475569; line-height: 1.4; }
+    @media (max-width: 768px) { .bmc-grid { display: flex; flex-direction: column; } }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-rose-200">
+
+  <nav class="glass-nav fixed w-full z-50 border-b border-slate-200 top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <i class="fa-solid fa-lightbulb text-rose-600 text-2xl"></i>
+          <span class="font-bold text-lg tracking-tight text-slate-900 hidden md:block">Entrepreneurship Course</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#intro" class="text-slate-600 hover:text-rose-600 px-2 py-2 text-sm font-semibold transition-colors">Intro</a>
+          <a href="#chapter1" class="text-rose-600 hover:text-rose-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 1: Basics</a>
+          <a href="#chapter2" class="text-sky-600 hover:text-sky-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 2: The Entrepreneur</a>
+          <a href="#chapter3" class="text-amber-600 hover:text-amber-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 3: Opportunity</a>
+          <a href="#chapter4" class="text-emerald-600 hover:text-emerald-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 4: Business Models</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="intro" class="section-anchor pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-6 uppercase tracking-wider border border-slate-200">
+      <i class="fa-solid fa-rocket"></i> Innovation & Management Curriculum
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+      Entrepreneurship: <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-orange-500">Concepts, Characteristics, and Business Models</span>
+    </h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
+      A comprehensive guide to understanding the entrepreneurial journey—from ideation and opportunity recognition to the psychological traits of founders and the architecture of platform-based business models.
+    </p>
+  </header>
+
+  <section id="chapter1" class="section-anchor bg-ch1 border-y border-rose-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-rose-600 font-bold tracking-widest uppercase text-xs bg-rose-100 px-2 py-1 rounded">Chapter 1</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Basics of Entrepreneurship</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Exploring the core definitions, essential characteristics, economic importance, and the distinction between small businesses and innovation-driven enterprises.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <!-- 1.1 Definitions -->
+        <div class="col-span-12 lg:col-span-5 card border-t-4 border-t-rose-500 flex flex-col">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-3"><span class="num-badge bg-rose-600">1.1</span> Concept of Entrepreneurship</h3>
+          <p class="text-sm text-slate-600 mb-4">Entrepreneurship is complex, chaotic, and non-linear. Different scholars highlight various facets of the process:</p>
+          
+          <div class="space-y-4 flex-1">
+            <div class="bg-rose-50 p-3 rounded-lg border border-rose-100 relative">
+              <i class="fa-solid fa-quote-left absolute top-2 left-2 text-rose-200 text-2xl"></i>
+              <p class="text-[11px] text-slate-700 relative z-10 pl-6 italic">"...develop our student's discovery, reasoning and implementation skills so that they may excel in highly uncertain environments."</p>
+              <div class="text-[9px] font-bold text-rose-800 text-right mt-1">- Neck and Greene (2011)</div>
+            </div>
+            <div class="bg-rose-50 p-3 rounded-lg border border-rose-100 relative">
+              <i class="fa-solid fa-quote-left absolute top-2 left-2 text-rose-200 text-2xl"></i>
+              <p class="text-[11px] text-slate-700 relative z-10 pl-6 italic">"A dynamic and social process where individuals... identify opportunities for innovation and act upon these by transforming ideas into practical activities."</p>
+              <div class="text-[9px] font-bold text-rose-800 text-right mt-1">- Kollie et al. (2011)</div>
+            </div>
+            <div class="bg-rose-50 p-3 rounded-lg border border-rose-100 relative">
+              <i class="fa-solid fa-quote-left absolute top-2 left-2 text-rose-200 text-2xl"></i>
+              <p class="text-[11px] text-slate-700 relative z-10 pl-6 italic">"The dynamic process of creating incremental wealth by individuals who assume major risks in terms of equity, time, and career."</p>
+              <div class="text-[9px] font-bold text-rose-800 text-right mt-1">- Mokaya et al. (2013)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1.2 Characteristics -->
+        <div class="col-span-12 lg:col-span-7 card h-full">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-3"><span class="num-badge bg-rose-600">1.2</span> Characteristics of Entrepreneurship</h3>
+          <p class="text-xs text-slate-600 mb-4">A set of attitudes and behaviors that influence how entrepreneurs identify opportunities and respond to challenges (Solymossy, 1998):</p>
+          
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-trophy text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Achievement</strong><span class="text-[10px] text-slate-500">Motivation to set goals and achieve high standards.</span></div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-gamepad text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Personal Control</strong><span class="text-[10px] text-slate-500">Belief that one can influence outcomes directly.</span></div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-lightbulb text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Innovation</strong><span class="text-[10px] text-slate-500">Willingness to implement new methods/products.</span></div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-shield-heart text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Self-Esteem</strong><span class="text-[10px] text-slate-500">Confidence in one's entrepreneurial abilities.</span></div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-bolt text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Opportunism</strong><span class="text-[10px] text-slate-500">Tendency to recognize and seize profitable gaps.</span></div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-dice text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Risk Tolerance</strong><span class="text-[10px] text-slate-500">Moderate risk-takers willing to manage uncertainty.</span></div>
+            </div>
+            <div class="flex items-start gap-3 p-2 bg-slate-50 rounded border border-slate-100 sm:col-span-2">
+              <div class="w-8 h-8 rounded bg-rose-100 text-rose-600 flex items-center justify-center shrink-0"><i class="fa-solid fa-person-walking-luggage text-xs"></i></div>
+              <div><strong class="text-xs text-slate-800 block">Autonomy/Independence</strong><span class="text-[10px] text-slate-500">Ability to act and decide without relying on others' approval.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-10 bg-slate-900 text-white shadow-xl">
+        <h3 class="text-2xl font-bold mb-6 flex items-center"><span class="num-badge bg-rose-500">1.4</span> Types of Entrepreneurship</h3>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-6">
+          <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-7xl text-slate-700 opacity-30"><i class="fa-solid fa-microchip"></i></div>
+            <h4 class="text-lg font-bold text-rose-400 mb-2">Innovation-Driven (IDE)</h4>
+            <p class="text-xs text-slate-300 mb-3">Pursues global opportunities through new-to-the-world innovations offering clear competitive advantage and high growth potential (Aulet & Murray, 2013).</p>
+            <ul class="text-[10px] text-slate-400 space-y-1 list-disc pl-4">
+              <li>Targets global or broad regional markets.</li>
+              <li>Requires external capital (Venture Capital, Angels).</li>
+              <li>Involves significant technical and market risks.</li>
+              <li>Generates substantial direct/indirect employment.</li>
+            </ul>
+          </div>
+          
+          <div class="bg-slate-800 p-5 rounded-xl border border-slate-700 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-7xl text-slate-700 opacity-30"><i class="fa-solid fa-store"></i></div>
+            <h4 class="text-lg font-bold text-blue-400 mb-2">Small Business (SME)</h4>
+            <p class="text-xs text-slate-300 mb-3">Serves primarily local markets through traditional, well-understood business ideas with limited competitive advantage.</p>
+            <ul class="text-[10px] text-slate-400 space-y-1 list-disc pl-4">
+              <li>Targets local demand.</li>
+              <li>Relies on founder's execution and business acumen.</li>
+              <li>Important source of self and local employment.</li>
+              <li>Small scale (founder, family, limited workers).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 border-t border-slate-700 pt-6">
+          <div class="col-span-3 text-sm font-bold text-slate-300 mb-2">Based on Motivation (Stam & van Stel, 2009):</div>
+          <div class="bg-slate-800 p-3 rounded border border-slate-700">
+            <div class="text-[11px] font-bold text-rose-300">Necessity-Driven</div>
+            <div class="text-[9px] text-slate-400 mt-1">Undertaken because individuals have no other alternatives for earning a living. Prevalent in low-income countries.</div>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border border-slate-700">
+            <div class="text-[11px] font-bold text-emerald-300">Opportunity-Driven</div>
+            <div class="text-[9px] text-slate-400 mt-1">Motivated by the desire to pursue opportunities, independence, or higher income. Prevalent in high-income countries.</div>
+          </div>
+          <div class="bg-slate-800 p-3 rounded border border-slate-700">
+            <div class="text-[11px] font-bold text-amber-300">Growth-Oriented</div>
+            <div class="text-[9px] text-slate-400 mt-1">Strong focus on business expansion. Crucial for economic growth in transition economies.</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="chapter2" class="section-anchor bg-ch2 border-y border-sky-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-sky-600 font-bold tracking-widest uppercase text-xs bg-sky-100 px-2 py-1 rounded">Chapter 2</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">The Entrepreneur: Concept & Characteristics</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Focusing on the central actor in the entrepreneurial process. Who they are, how they are defined, and the specific psychological competencies that drive success.</p>
+      </div>
+
+      <!-- 2.1 Definitions & 2.2.1 The 3Cs -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        
+        <div class="card h-full">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-sky-600">2.1</span> Who is an Entrepreneur?</h3>
+          <p class="text-xs text-slate-600 mb-4">No single definition is universally accepted. The concept has evolved:</p>
+          
+          <ul class="space-y-4 text-xs">
+            <li class="bg-sky-50 p-3 rounded border-l-4 border-sky-400 shadow-sm">
+              <strong class="text-sky-800 block mb-1">Jean Baptiste Say (c. 1800)</strong>
+              <span class="text-slate-700">A person who transfers resources from lower productivity to higher productivity and increased profit, thus creating value. <em>(Resource coordinator perspective)</em>.</span>
+            </li>
+            <li class="bg-sky-50 p-3 rounded border-l-4 border-sky-500 shadow-sm">
+              <strong class="text-sky-800 block mb-1">Bygrave and Hofer (1991)</strong>
+              <span class="text-slate-700">A person who perceives an opportunity and creates an organization to follow it. <em>(Opportunity recognition perspective)</em>.</span>
+            </li>
+            <li class="bg-sky-50 p-3 rounded border-l-4 border-sky-600 shadow-sm">
+              <strong class="text-sky-800 block mb-1">Agarwal & Chatterjee (2007)</strong>
+              <span class="text-slate-700">An individual who employs his own skills to shape a new organization out of complexity and uncertainty. <em>(Skill and uncertainty perspective)</em>.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div class="case-box ch2-case shadow-xl flex-1">
+            <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2"><span class="num-badge bg-sky-500 text-white">2.2.1</span> The "3C" Characteristics</h3>
+            <p class="text-xs text-slate-300 mb-4">Successful entrepreneurs are characterized by three complementary psychological traits that enhance venture performance (Raine & Pandya, 2019):</p>
+            
+            <div class="space-y-3">
+              <div class="flex items-center gap-4 bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div>
+                  <h4 class="font-bold text-sky-300 text-sm">Curiosity</h4>
+                  <p class="text-[10px] text-slate-400">Optimism and openness that enhance company growth and discovery.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                <div class="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-palette"></i></div>
+                <div>
+                  <h4 class="font-bold text-indigo-300 text-sm">Creativity</h4>
+                  <p class="text-[10px] text-slate-400">Develops innovative solutions and facilitates conflict management.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                <div class="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-handshake-simple"></i></div>
+                <div>
+                  <h4 class="font-bold text-rose-300 text-sm">Commitment</h4>
+                  <p class="text-[10px] text-slate-400">Passion and perseverance strongly associated with higher venture performance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-t-4 border-t-sky-400">
+        <h3 class="text-2xl font-bold mb-2 text-center"><span class="num-badge bg-sky-600">2.2.2</span> Personal Entrepreneurial Competencies (PECs)</h3>
+        <p class="text-sm text-center text-slate-600 mb-8 max-w-2xl mx-auto">A specific set of knowledge, skills, and abilities. The Harvard University framework identifies three major clusters of competencies (Arafeh, 2016):</p>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-blue-50 p-5 rounded-xl border border-blue-200 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-7xl text-blue-200 opacity-50"><i class="fa-solid fa-mountain"></i></div>
+            <h4 class="font-bold text-blue-800 text-lg mb-3 relative z-10">1. Achievement Cluster</h4>
+            <ul class="text-xs text-slate-700 space-y-2 relative z-10 pl-4 list-disc">
+              <li>Opportunity-seeking and initiative.</li>
+              <li>Persistence in the face of obstacles.</li>
+              <li>Fulfillment of commitments.</li>
+              <li>Demand for quality and efficiency.</li>
+              <li>Taking calculated risks.</li>
+            </ul>
+          </div>
+
+          <div class="bg-teal-50 p-5 rounded-xl border border-teal-200 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-7xl text-teal-200 opacity-50"><i class="fa-solid fa-chess-board"></i></div>
+            <h4 class="font-bold text-teal-800 text-lg mb-3 relative z-10">2. Planning Cluster</h4>
+            <ul class="text-xs text-slate-700 space-y-2 relative z-10 pl-4 list-disc">
+              <li>Goal-setting (clear, long-term visions).</li>
+              <li>Information-seeking (market research, feedback).</li>
+              <li>Systematic planning and monitoring.</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 p-5 rounded-xl border border-purple-200 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-7xl text-purple-200 opacity-50"><i class="fa-solid fa-crown"></i></div>
+            <h4 class="font-bold text-purple-800 text-lg mb-3 relative z-10">3. Power Cluster</h4>
+            <ul class="text-xs text-slate-700 space-y-2 relative z-10 pl-4 list-disc">
+              <li>Persuasion and networking.</li>
+              <li>Independence.</li>
+              <li>Self-confidence.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter3" class="section-anchor bg-ch3 border-y border-amber-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-amber-600 font-bold tracking-widest uppercase text-xs bg-amber-100 px-2 py-1 rounded">Chapter 3</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Entrepreneurial Opportunity</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">The structured journey from initial business idea generation to formal opportunity evaluation, the business case, and the final pitch deck.</p>
+      </div>
+
+      <!-- 3.1 Ideas vs Opportunity -->
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <div class="col-span-12 lg:col-span-7 card h-full">
+          <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-amber-600">3.1.2</span> Opportunity Recognition & Development</h3>
+          <p class="text-xs text-slate-600 mb-6">According to Ardichvili et al. (2003), entrepreneurs go through three main stages to transform an idea into a viable business:</p>
+          
+          <div class="flex flex-col md:flex-row justify-between items-center bg-slate-50 p-4 rounded-xl border border-slate-200 gap-4">
+            <div class="text-center w-full md:w-1/3">
+              <div class="w-12 h-12 mx-auto bg-amber-500 text-white rounded-full flex items-center justify-center text-xl mb-2 shadow"><i class="fa-solid fa-eye"></i></div>
+              <h4 class="font-bold text-xs text-slate-800 mb-1">1. Recognition</h4>
+              <p class="text-[9px] text-slate-500 leading-tight">Perceiving market needs and creating a "fit" with specific resources.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right text-slate-300 hidden md:block"></i>
+            <i class="fa-solid fa-arrow-down text-slate-300 md:hidden"></i>
+            <div class="text-center w-full md:w-1/3">
+              <div class="w-12 h-12 mx-auto bg-amber-500 text-white rounded-full flex items-center justify-center text-xl mb-2 shadow"><i class="fa-solid fa-hammer"></i></div>
+              <h4 class="font-bold text-xs text-slate-800 mb-1">2. Development</h4>
+              <p class="text-[9px] text-slate-500 leading-tight">Proactive, continuous efforts to build an entire business concept, not just a product.</p>
+            </div>
+            <i class="fa-solid fa-arrow-right text-slate-300 hidden md:block"></i>
+            <i class="fa-solid fa-arrow-down text-slate-300 md:hidden"></i>
+            <div class="text-center w-full md:w-1/3">
+              <div class="w-12 h-12 mx-auto bg-amber-600 text-white rounded-full flex items-center justify-center text-xl mb-2 shadow ring-4 ring-amber-200"><i class="fa-solid fa-scale-balanced"></i></div>
+              <h4 class="font-bold text-xs text-slate-800 mb-1">3. Evaluation</h4>
+              <p class="text-[9px] text-slate-500 leading-tight">Assessing feasibility, risks, and potential to decide whether to continue or abandon.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-span-12 lg:col-span-5 card border-t-4 border-t-amber-400">
+          <h3 class="text-lg font-bold mb-3"><span class="num-badge bg-amber-500">3.1.1</span> Idea Generation</h3>
+          <p class="text-[11px] text-slate-600 mb-4">The systematic process of creating and capturing ideas. Entrepreneurs use creative techniques to respond to emerging market gaps:</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">Brainstorming</span>
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">SCAMPER</span>
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">Empathy Map</span>
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">Design Thinking</span>
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">Focus Groups</span>
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">Mind Mapping</span>
+            <span class="bg-amber-50 text-amber-800 px-3 py-1.5 rounded-full border border-amber-200 text-xs font-semibold shadow-sm">5W's & H</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 Business Case & Pitch -->
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="case-box ch3-case shadow-lg !bg-white !text-slate-800 border border-slate-200">
+          <h3 class="text-xl font-bold mb-3"><span class="num-badge bg-blue-600">3.2.1</span> The Business Case</h3>
+          <p class="text-xs text-slate-600 mb-4">A structured assessment of an opportunity determining if it is worth pursuing. It provides the basis for a detailed Business Plan.</p>
+          <div class="bg-slate-50 p-3 rounded border border-slate-200">
+            <h4 class="font-bold text-sm text-slate-800 mb-2">Three Essential Tasks (Volker, 2012):</h4>
+            <ul class="text-xs text-slate-700 space-y-2 pl-4 list-disc">
+              <li><strong>Customers:</strong> Identifying who will buy and <em>why</em>.</li>
+              <li><strong>Resources:</strong> Identifying capital required to achieve sales and be viable.</li>
+              <li><strong>Financial Returns:</strong> Estimating returns and determining money generated over time.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-box ch3-case shadow-lg !bg-slate-900 !text-white border-none">
+          <h3 class="text-xl font-bold mb-3 text-white"><span class="num-badge bg-amber-500 text-white">3.2.2</span> The Pitch Deck</h3>
+          <p class="text-xs text-slate-300 mb-4">A brief presentation providing an overview of a startup idea, delivered to investors. It serves as a visual aid to communicate value proposition and growth potential.</p>
+          <div class="bg-slate-800 p-3 rounded border border-slate-700">
+            <h4 class="font-bold text-sm text-amber-400 mb-2">Modes of Expression:</h4>
+            <ul class="text-xs text-slate-300 space-y-2 pl-4 list-disc">
+              <li>A short written executive summary.</li>
+              <li>An oral presentation in face-to-face meetings ("Elevator Pitch").</li>
+              <li>A stage presentation with an audience acting as a jury.</li>
+              <li>A short video or prototype app demo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter4" class="section-anchor bg-ch4 border-t border-emerald-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-emerald-600 font-bold tracking-widest uppercase text-xs bg-emerald-100 px-2 py-1 rounded">Chapter 4</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Business Model Generation</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Understanding the logic of value creation through the Business Model Canvas and the transition toward modern platform-based architectures.</p>
+      </div>
+
+      <!-- 4.1.1 Definitions -->
+      <div class="card mb-10 border-t-4 border-t-emerald-500">
+        <h3 class="text-xl font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-emerald-600">4.1.1</span> Concept of a Business Model</h3>
+        <p class="text-sm text-slate-700 mb-4">A business model is a simplified representation of how a business operates in the real world, illustrating how its key elements interact to create, deliver, and capture value.</p>
+        
+        <div class="grid md:grid-cols-3 gap-4 text-xs text-slate-600">
+          <div class="bg-emerald-50 p-3 rounded border border-emerald-100">
+            <strong class="text-emerald-800 block mb-1">Teece (2010)</strong>
+            "Articulates the logic and provides data that demonstrates how a business creates value, outlining the architecture of revenues, costs, and profits."
+          </div>
+          <div class="bg-emerald-50 p-3 rounded border border-emerald-100">
+            <strong class="text-emerald-800 block mb-1">Porter (via Morris, 2005)</strong>
+            "Builds upon the value chain concept and extended notions of value systems and strategic positioning."
+          </div>
+          <div class="bg-emerald-50 p-3 rounded border border-emerald-100">
+            <strong class="text-emerald-800 block mb-1">Amit & Zott (2012)</strong>
+            "An activity system conducted to satisfy market needs, specifying which parties conduct which activities and how they link."
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-10 overflow-x-auto bg-slate-100 border border-slate-200">
+        <h3 class="text-xl font-bold mb-6 text-center"><span class="num-badge bg-slate-800">4.1.2</span> The Business Model Canvas (Osterwalder & Pigneur)</h3>
+        
+        <div class="min-w-[800px]">
+          <div class="bmc-grid h-[400px]">
+            <!-- Top Left: Key Partners -->
+            <div class="bmc-block col-span-2 row-span-2 shadow-sm border-slate-300">
+              <div class="bmc-block-title"><i class="fa-solid fa-link text-slate-400"></i> Key Partnerships</div>
+              <div class="bmc-block-text">The network of suppliers and partners that make the business model work (e.g., Foxconn for Apple).</div>
+            </div>
+            
+            <!-- Top Mid-Left: Key Activities & Resources -->
+            <div class="col-span-2 row-span-2 grid grid-rows-2 gap-[10px]">
+              <div class="bmc-block shadow-sm border-slate-300">
+                <div class="bmc-block-title"><i class="fa-solid fa-check-double text-slate-400"></i> Key Activities</div>
+                <div class="bmc-block-text">The most important actions a company must take to operate successfully.</div>
+              </div>
+              <div class="bmc-block shadow-sm border-slate-300">
+                <div class="bmc-block-title"><i class="fa-solid fa-cube text-slate-400"></i> Key Resources</div>
+                <div class="bmc-block-text">Important assets (physical, financial, human, IP) required to offer value.</div>
+              </div>
+            </div>
+
+            <!-- Center: Value Propositions -->
+            <div class="bmc-block col-span-2 row-span-2 shadow-md border-emerald-400 bg-emerald-50 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-8 h-8 bg-emerald-200 rounded-bl-full flex justify-end items-start pr-1 pt-1 opacity-50"><i class="fa-solid fa-gift text-emerald-600 text-xs"></i></div>
+              <div class="bmc-block-title text-emerald-800">Value Proposition</div>
+              <div class="bmc-block-text font-medium text-emerald-900">The bundle of products and services that solve a problem or create quantitative/qualitative value for a specific segment.</div>
+            </div>
+
+            <!-- Top Mid-Right: Customer Relationships & Channels -->
+            <div class="col-span-2 row-span-2 grid grid-rows-2 gap-[10px]">
+              <div class="bmc-block shadow-sm border-slate-300">
+                <div class="bmc-block-title"><i class="fa-solid fa-heart text-slate-400"></i> Cust. Relationships</div>
+                <div class="bmc-block-text">Types of relationships established (personal assistance, self-service, automated).</div>
+              </div>
+              <div class="bmc-block shadow-sm border-slate-300">
+                <div class="bmc-block-title"><i class="fa-solid fa-truck-fast text-slate-400"></i> Channels</div>
+                <div class="bmc-block-text">How the company communicates with and reaches segments to deliver value.</div>
+              </div>
+            </div>
+
+            <!-- Top Right: Customer Segments -->
+            <div class="bmc-block col-span-2 row-span-2 shadow-sm border-slate-300">
+              <div class="bmc-block-title"><i class="fa-solid fa-users text-slate-400"></i> Customer Segments</div>
+              <div class="bmc-block-text">The different groups of people or organizations the enterprise aims to reach and serve.</div>
+            </div>
+
+            <!-- Bottom Left: Cost Structure -->
+            <div class="bmc-block col-span-5 row-span-1 shadow-sm border-slate-300">
+              <div class="bmc-block-title"><i class="fa-solid fa-tags text-slate-400"></i> Cost Structure</div>
+              <div class="bmc-block-text">All costs incurred to operate the business model (fixed, variable, R&D, marketing).</div>
+            </div>
+
+            <!-- Bottom Right: Revenue Streams -->
+            <div class="bmc-block col-span-5 row-span-1 shadow-sm border-slate-300">
+              <div class="bmc-block-title"><i class="fa-solid fa-money-bill-wave text-slate-400"></i> Revenue Streams</div>
+              <div class="bmc-block-text">The cash generated from each segment (asset sale, subscription, licensing, advertising).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        
+        <div class="case-box ch4-case shadow-lg">
+          <h3 class="text-xl font-bold text-white mb-4 border-b border-slate-700 pb-2"><span class="num-badge bg-emerald-500 text-white">4.2</span> Platform-Based Models</h3>
+          <p class="text-xs text-slate-300 mb-4">An infrastructure that facilitates interactions and trade among two or more different types of economic actors, using digital technologies to reduce friction (Croxson et al., 2021).</p>
+          
+          <table class="w-full text-left text-[11px] border-collapse bg-slate-800 rounded overflow-hidden">
+            <thead>
+              <tr class="bg-slate-900 border-b border-slate-700"><th class="p-2 text-emerald-400">Factor</th><th class="p-2 text-white">Traditional</th><th class="p-2 text-white">Platform-Based</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-700/50"><td class="p-2 font-bold text-emerald-300">Value</td><td class="p-2 text-slate-400">Producing & selling goods.</td><td class="p-2 text-white">Facilitating interactions.</td></tr>
+              <tr class="border-b border-slate-700/50"><td class="p-2 font-bold text-emerald-300">Scale</td><td class="p-2 text-slate-400">Requires physical assets.</td><td class="p-2 text-white">Grows via Network Effects.</td></tr>
+              <tr class="border-b border-slate-700/50"><td class="p-2 font-bold text-emerald-300">Data</td><td class="p-2 text-slate-400">Improves internal processes.</td><td class="p-2 text-white">Facilitates better matching.</td></tr>
+              <tr><td class="p-2 font-bold text-emerald-300">Risks</td><td class="p-2 text-slate-400">Supply chain, inventory.</td><td class="p-2 text-white">Data integrity, platform trust.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card h-full flex flex-col">
+          <h3 class="text-lg font-bold mb-4 border-b border-slate-100 pb-2"><span class="num-badge bg-emerald-600">4.3</span> Successful Examples</h3>
+          <div class="space-y-4 flex-1">
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-apple text-3xl text-slate-800 w-8 text-center"></i>
+              <div>
+                <strong class="text-sm text-slate-800 block">Apple</strong>
+                <span class="text-[11px] text-slate-600">Value Prop: Premium design, iOS ecosystem. Revenue: Hardware sales, App Store commissions.</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-amazon text-3xl text-orange-500 w-8 text-center"></i>
+              <div>
+                <strong class="text-sm text-slate-800 block">Amazon</strong>
+                <span class="text-[11px] text-slate-600">Value Prop: Vast selection, fast delivery. Key Resource: Logistics network, AWS cloud infrastructure.</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-uber text-3xl text-slate-900 w-8 text-center"></i>
+              <div>
+                <strong class="text-sm text-slate-800 block">Uber</strong>
+                <span class="text-[11px] text-slate-600">Value Prop: On-demand transport. Key Partners: Independent drivers. Network Effects scale the platform.</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-brands fa-airbnb text-3xl text-rose-500 w-8 text-center"></i>
+              <div>
+                <strong class="text-sm text-slate-800 block">Airbnb</strong>
+                <span class="text-[11px] text-slate-600">Value Prop: Authentic travel experiences. Key Activities: Matching guests/hosts, maintaining trust and platform UI.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t-4 border-rose-500">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border border-slate-700">
+        <i class="fa-solid fa-lightbulb text-2xl text-rose-400"></i>
+      </div>
+      <h2 class="text-xl font-bold text-white mb-4">Course Conclusion</h2>
+      <p class="text-sm italic text-slate-300 mb-6 max-w-2xl mx-auto leading-relaxed">
+        "Entrepreneurship is a multidimensional phenomenon involving opportunity recognition, innovation, risk-taking, and value creation. Understanding traditional frameworks like the Business Model Canvas alongside modern platform dynamics provides the foundation for launching successful ventures."
+      </p>
+      <p class="text-[10px] text-slate-500 tracking-widest uppercase">
+        &copy; Entrepreneurship Curriculum | Master 2
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

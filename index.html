@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZELLAGUI | Master 2 Management Courses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-900 text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md">
+                    Z
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight text-slate-900">ZELLAGUI</h1>
+                    <p class="text-xs font-medium text-slate-500 uppercase tracking-widest">Master 2 Management Portal</p>
+                </div>
+            </div>
+            <div class="hidden sm:block">
+                <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full border border-blue-200">
+                    <i class="fas fa-folder-open mr-1"></i> 9 Modules
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        
+        <!-- Drive Hosting Notice -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm mb-10">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-lightbulb text-amber-500"></i>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm text-amber-800">
+                        <strong>Sharing Tip:</strong> If viewers click these links directly inside the Google Drive previewer, they might not open properly. To share this dashboard as a real website, use a free service like <a href="https://drv.tw/" target="_blank" class="font-bold underline hover:text-amber-900">DriveToWeb (drv.tw)</a> to generate a public web link for this folder!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-10 text-center sm:text-left">
+            <h2 class="text-3xl font-bold text-slate-900 mb-2">Course Dashboard</h2>
+            <p class="text-slate-600">Select a module below to open the detailed course summary.</p>
+        </div>
+
+        <!-- Course Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Artificial Intelligence -->
+            <a href="artificial_intelligence_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-brain absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Artificial Intelligence</h3>
+                    <p class="text-blue-100 text-sm opacity-90 line-clamp-2">Concepts, Technologies, and Managerial Applications.</p>
+                </div>
+            </a>
+
+            <!-- Conflict Management & ADR -->
+            <a href="conflict_management_and_adr_detailed_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-handshake-angle absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Conflict Management & ADR</h3>
+                    <p class="text-rose-100 text-sm opacity-90 line-clamp-2">Alternative Dispute Resolution, negotiation postures, and strategies.</p>
+                </div>
+            </a>
+
+            <!-- Dissertation Writing -->
+            <a href="dissertation_writing_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-fuchsia-500 to-purple-600 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-pen-nib absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Dissertation Writing</h3>
+                    <p class="text-fuchsia-100 text-sm opacity-90 line-clamp-2">Research problem formulation, objectives, and academic methodology.</p>
+                </div>
+            </a>
+
+            <!-- E-Business -->
+            <a href="e_business_detailed_course_summary.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-laptop-code absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">E-Business</h3>
+                    <p class="text-cyan-100 text-sm opacity-90 line-clamp-2">Digital transactions, network technologies, and business model ontology.</p>
+                </div>
+            </a>
+
+            <!-- English for Global Business -->
+            <a href="english_for_global_business_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-globe absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-earth-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">English for Global Business</h3>
+                    <p class="text-emerald-100 text-sm opacity-90 line-clamp-2">Global markets, multinational environments, and communication skills.</p>
+                </div>
+            </a>
+
+            <!-- Entrepreneurship -->
+            <a href="entrepreneurship_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-lightbulb absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Entrepreneurship</h3>
+                    <p class="text-amber-100 text-sm opacity-90 line-clamp-2">Opportunity recognition, business ideas, and the Business Model Canvas.</p>
+                </div>
+            </a>
+
+            <!-- Innovation Management -->
+            <a href="innovation_management_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-violet-500 to-purple-700 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-wand-magic-sparkles absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Innovation Management</h3>
+                    <p class="text-violet-100 text-sm opacity-90 line-clamp-2">Technology S-curves, Stage-Gate governance, and corporate R&D.</p>
+                </div>
+            </a>
+
+            <!-- Production & Operations Management -->
+            <a href="production_and_operations_management_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-industry absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-gears"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Production & Operations Management</h3>
+                    <p class="text-orange-100 text-sm opacity-90 line-clamp-2">Process design, facility layout, capacity planning, and efficiency.</p>
+                </div>
+            </a>
+
+            <!-- Quantitative Data Analysis -->
+            <a href="quantitative_data_analysis_course.html" class="block group card-hover">
+                <div class="h-full rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 p-6 text-white shadow-lg overflow-hidden relative">
+                    <i class="fas fa-chart-line absolute -bottom-4 -right-4 text-8xl opacity-10 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 leading-tight">Quantitative Data Analysis</h3>
+                    <p class="text-teal-100 text-sm opacity-90 line-clamp-2">Sampling strategies, data management, and statistical analysis processes.</p>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t-4 border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-slate-800 text-white rounded flex items-center justify-center font-bold text-sm">
+                    Z
+                </div>
+                <span class="font-bold text-slate-200">ZELLAGUI Educational</span>
+            </div>
+            <p class="text-xs">Master 2 Management Curriculum Portfolio</p>
+            <div class="text-sm">
+                <a href="#" class="hover:text-white transition-colors"><i class="fas fa-arrow-up mr-1"></i> Back to top</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

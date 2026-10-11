@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Innovation Management: Strategy, Process, and Global Dynamics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            ch1: '#f0f9ff', // Light Sky Blue for Chapter 1
+            ch2: '#ecfdf5', // Light Emerald for Chapter 2
+            ch3: '#fffbeb', // Light Amber for Chapter 3
+            ch4: '#f3e8ff', // Light Purple for Chapter 4
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    .section-anchor { scroll-margin-top: 70px; }
+    
+    .card { background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(0,0,0,0.05); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    
+    .num-badge { display: inline-flex; align-items: center; justify-content: center; background: #1e293b; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-right: 10px; letter-spacing: 0.05em; }
+    
+    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+    .data-table th { background: #f8fafc; font-weight: 600; text-align: left; padding: 14px 16px; border-bottom: 2px solid #e2e8f0; color: #0f172a; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .data-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; color: #475569; font-size: 0.9rem; line-height: 1.5; }
+    .data-table tr:last-child td { border-bottom: none; }
+    
+    /* Case Study Box */
+    .case-box { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 24px; position: relative; overflow: hidden; }
+    .case-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .case-box.ch1-case::before { background: #0ea5e9; }
+    .case-box.ch2-case::before { background: #10b981; }
+    .case-box.ch3-case::before { background: #f59e0b; }
+    .case-box.ch4-case::before { background: #a855f7; }
+
+    /* Custom CSS Graphics */
+    .s-curve-container { position: relative; width: 100%; height: 200px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; overflow: hidden; padding: 20px; }
+    .s-curve-line { position: absolute; bottom: 20px; left: 20px; width: 80%; height: 80%; border-bottom: 4px solid #0ea5e9; border-right: 4px solid #0ea5e9; border-bottom-right-radius: 100%; border-top-left-radius: 100%; transform: rotate(45deg) scale(1.4); transform-origin: bottom left; opacity: 0.8; }
+    .chasm-container { display: flex; align-items: flex-end; justify-content: space-between; height: 150px; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; margin-top: 20px; }
+    .chasm-block { background: #10b981; border-radius: 4px 4px 0 0; text-align: center; color: white; font-weight: bold; font-size: 0.7rem; padding: 5px; display: flex; flex-direction: column; justify-content: center; }
+    .chasm-gap { width: 30px; height: 150px; background: repeating-linear-gradient(45deg, #f8fafc, #f8fafc 5px, #f1f5f9 5px, #f1f5f9 10px); border-left: 2px dashed #ef4444; border-right: 2px dashed #ef4444; position: relative; }
+    .chasm-gap::after { content: "THE CHASM"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-90deg); font-size: 0.6rem; font-weight: bold; color: #ef4444; letter-spacing: 2px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-200">
+
+  <nav class="glass-nav fixed w-full z-50 border-b border-slate-200 top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <i class="fa-solid fa-lightbulb text-sky-600 text-2xl"></i>
+          <span class="font-bold text-lg tracking-tight text-slate-900 hidden md:block">Innovation Management</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#intro" class="text-slate-600 hover:text-sky-600 px-2 py-2 text-sm font-semibold transition-colors">Intro</a>
+          <a href="#chapter1" class="text-sky-600 hover:text-sky-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 1: Foundations</a>
+          <a href="#chapter2" class="text-emerald-600 hover:text-emerald-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 2: Global Context</a>
+          <a href="#chapter3" class="text-amber-600 hover:text-amber-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 3: Process & R&D</a>
+          <a href="#chapter4" class="text-purple-600 hover:text-purple-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 4: Search & Sources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="intro" class="section-anchor pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-6 uppercase tracking-wider border border-slate-200">
+      <i class="fa-solid fa-graduation-cap"></i> Master 2 (M2) Curriculum | Semester 3
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+      Innovation Management: <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">Strategy, Process, and Global Dynamics</span>
+    </h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
+      An integrated, cross-disciplinary examination of the strategic, organizational, cognitive, and financial mechanisms governing innovation in modern enterprises. From the "fuzzy front end" of ideation to disciplined Stage-Gate commercial execution.
+    </p>
+  </header>
+
+  <section id="chapter1" class="section-anchor bg-ch1 border-y border-sky-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-sky-600 font-bold tracking-widest uppercase text-xs bg-sky-100 px-2 py-1 rounded">Chapter 1</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Foundations, Lifecycles, and Megatrends</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Defining the boundary between invention and innovation, classifying architectural shifts, and analyzing the physics of Technology S-Curves.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        <!-- 1.1 The Gap -->
+        <div class="card border-l-4 border-l-sky-500">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-sky-600">1.1</span> Invention vs. Innovation</h3>
+          <p class="text-sm text-slate-600 mb-4">Joseph Schumpeter (1934) defined innovation not merely as scientific discovery, but as the commercial implementation of a new idea that alters market equilibrium through "creative destruction."</p>
+          
+          <div class="bg-slate-900 p-4 rounded-lg text-center mb-4">
+            <code class="text-sky-400 text-xs sm:text-sm font-bold tracking-wider">Innovation = Invention + Commercial Execution + Diffusion</code>
+          </div>
+          
+          <h4 class="text-sm font-bold text-slate-800 mb-2">The "Valley of Death" (Invention-Innovation Gap)</h4>
+          <p class="text-xs text-slate-600">The difficult transition between a promising technical idea and a viable market offering. Many ideas fail here due to a lack of finance, proof of concept, complementary assets, or market validation (Branscomb & Auerswald, 2002). Closing this gap requires R&D, marketing, and operational alignment.</p>
+        </div>
+
+        <!-- 1.2 Types -->
+        <div class="flex flex-col gap-6">
+          <div class="card h-full">
+            <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-sky-600">1.2</span> Core Classifications & Structural Types</h3>
+            <p class="text-xs text-slate-600 mb-4">Henderson and Clark (1990) established a foundational matrix based on how components and architectures change:</p>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-sky-50 p-3 rounded border border-sky-100">
+                <div class="font-bold text-sm text-sky-800">Incremental</div>
+                <p class="text-[10px] text-slate-600 mt-1">Improves components; keeps existing architecture. Low risk. <em>(Ex: iPhone 14 to 15 camera update).</em></p>
+              </div>
+              <div class="bg-indigo-50 p-3 rounded border border-indigo-100">
+                <div class="font-bold text-sm text-indigo-800">Modular</div>
+                <p class="text-[10px] text-slate-600 mt-1">New core component; existing architecture. <em>(Ex: Digital CCD sensors replacing film in standard camera bodies).</em></p>
+              </div>
+              <div class="bg-amber-50 p-3 rounded border border-amber-100">
+                <div class="font-bold text-sm text-amber-800">Architectural</div>
+                <p class="text-[10px] text-slate-600 mt-1">Re-links existing components in a new structure. Highly disruptive. <em>(Ex: Desktop PC to Laptop).</em></p>
+              </div>
+              <div class="bg-rose-50 p-3 rounded border border-rose-100">
+                <div class="font-bold text-sm text-rose-800">Radical / Disruptive</div>
+                <p class="text-[10px] text-slate-600 mt-1">Fundamentally new technology and architecture. <em>(Ex: Streaming replacing video rentals).</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-10 overflow-hidden border-t-4 border-t-sky-400">
+        <h3 class="text-xl font-bold mb-6 flex items-center"><span class="num-badge bg-sky-600">1.3</span> Technology Lifecycles & S-Curves</h3>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-3">The Technology S-Curve (Foster, 1986)</h4>
+            <p class="text-xs text-slate-600 mb-4">Models the non-linear relationship between cumulative R&D effort and performance improvements. It reveals when a technology reaches its physical limits (Asymptote L).</p>
+            
+            <!-- Abstract S-Curve Graphic -->
+            <div class="s-curve-container mb-4 relative">
+              <div class="absolute bottom-2 left-4 text-[9px] font-bold text-slate-400 uppercase">Effort / R&D Investment &rarr;</div>
+              <div class="absolute top-4 left-2 text-[9px] font-bold text-slate-400 uppercase -rotate-90 origin-top-left">Performance &rarr;</div>
+              
+              <!-- Curve 1 -->
+              <div class="absolute bottom-[20%] left-[10%] w-[40%] h-[60%] border-b-4 border-l-4 border-slate-300 rounded-bl-[100%] opacity-50"></div>
+              <div class="absolute top-[20%] left-[10%] w-[40%] h-[60%] border-t-4 border-r-4 border-slate-300 rounded-tr-[100%] opacity-50"></div>
+              
+              <!-- Curve 2 (Discontinuity) -->
+              <div class="absolute bottom-[10%] left-[40%] w-[40%] h-[80%] border-b-4 border-l-4 border-sky-500 rounded-bl-[100%]"></div>
+              <div class="absolute top-[10%] left-[40%] w-[40%] h-[80%] border-t-4 border-r-4 border-sky-500 rounded-tr-[100%]"></div>
+              
+              <div class="absolute top-[50%] left-[30%] text-[10px] font-bold text-sky-600 bg-white px-1">Discontinuity</div>
+            </div>
+            
+            <p class="text-[10px] text-slate-500"><strong>Attacker's Advantage:</strong> Emerging technologies often start with lower performance than mature incumbent technologies, causing incumbents to dismiss them early on.</p>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-3">Dominant Design (Abernathy-Utterback, 1975)</h4>
+            <p class="text-xs text-slate-600 mb-4">Links technology lifecycles to organizational focus. Once a standard configuration wins the market, competition shifts violently from product features to process costs.</p>
+            
+            <ul class="text-xs text-slate-700 space-y-3">
+              <li class="bg-slate-50 p-2 border-l-2 border-sky-400"><strong class="text-sky-800">1. Fluid Phase:</strong> High product innovation. Multiple firms experiment with radical architectures. Efficiency is secondary.</li>
+              <li class="bg-slate-50 p-2 border-l-2 border-indigo-400"><strong class="text-indigo-800">2. Transitional Phase:</strong> A <em>Dominant Design</em> emerges. Severe price competition forces a rapid pivot toward Process Innovation.</li>
+              <li class="bg-slate-50 p-2 border-l-2 border-slate-400"><strong class="text-slate-800">3. Specific Phase:</strong> Highly standardized and commoditized. Competition centers entirely on economies of scale and incremental process refinement.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-box ch1-case shadow-xl">
+        <div class="flex items-center gap-3 mb-4 border-b border-slate-700 pb-4">
+          <div class="w-12 h-12 bg-sky-500 rounded flex items-center justify-center text-white text-xl shadow-lg"><i class="fa-solid fa-car-battery"></i></div>
+          <div>
+            <h3 class="text-xl font-bold text-white"><span class="text-sky-400">1.4 Case Study:</span> Tesla's Multi-Dimensional Innovation</h3>
+            <p class="text-xs text-slate-400">How high-performing enterprises align all four functional innovation areas simultaneously.</p>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+            <h4 class="text-sm font-bold text-sky-300 mb-2">1. Product Innovation</h4>
+            <p class="text-xs text-slate-300">Introduced high-performance EVs featuring proprietary liquid-cooled battery architectures, silicon-carbide inverters, and centralized vehicle control units (VCUs).</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+            <h4 class="text-sm font-bold text-emerald-300 mb-2">2. Process Innovation</h4>
+            <p class="text-xs text-slate-300">Disrupted manufacturing through <strong>Gigacasting</strong>—using massive die-casting machines to stamp underbodies into single alloy pieces, eliminating hundreds of robotic welds and reducing factory footprint.</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+            <h4 class="text-sm font-bold text-amber-300 mb-2">3. Business Model Innovation (BMI)</h4>
+            <p class="text-xs text-slate-300">Bypassed traditional franchised dealerships for a Direct-to-Consumer (D2C) model. Monetizes recurring post-sale value through SaaS (Full Self-Driving subscriptions) and owns its Supercharger network.</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+            <h4 class="text-sm font-bold text-purple-300 mb-2">4. Organizational Innovation</h4>
+            <p class="text-xs text-slate-300">Operates with software-style agile development for hardware engineering. Cross-functional teams work on the factory floor, enabling real-time design modifications without waiting for multi-year refresh cycles.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter2" class="section-anchor bg-ch2 border-y border-emerald-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-emerald-600 font-bold tracking-widest uppercase text-xs bg-emerald-100 px-2 py-1 rounded">Chapter 2</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Global Context, Cognition, and Adoption</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Examining National Systems of Innovation, technology diffusion mechanics, and overcoming consumer adoption friction in a hyper-competitive global landscape.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <!-- 2.1 Macro Context -->
+        <div class="col-span-12 lg:col-span-5 card h-full border-t-4 border-t-emerald-500">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-emerald-600">2.1</span> Global Innovation Context</h3>
+          <p class="text-xs text-slate-600 mb-4">Innovation is embedded within <strong>National Systems of Innovation (NSI)</strong>—the network of public/private institutions determining the rate of technological learning (Lundvall, 1992).</p>
+          
+          <h4 class="font-bold text-sm text-slate-800 mb-2 border-b border-slate-100 pb-1">Porter's Diamond Model (1990)</h4>
+          <ul class="text-[11px] text-slate-700 space-y-2">
+            <li><strong class="text-emerald-800">Factor Conditions:</strong> Availability of skilled labor, scientific infrastructure, capital.</li>
+            <li><strong class="text-emerald-800">Demand Conditions:</strong> Sophistication of domestic buyers pushing firms to innovate.</li>
+            <li><strong class="text-emerald-800">Supporting Industries:</strong> Competitive local supplier networks.</li>
+            <li><strong class="text-emerald-800">Firm Strategy & Rivalry:</strong> Intense local competition driving global dominance.</li>
+          </ul>
+        </div>
+
+        <!-- 2.2 Adoption Models -->
+        <div class="col-span-12 lg:col-span-7 flex flex-col gap-6">
+          <div class="card h-full bg-slate-900 text-white border-none">
+            <h3 class="text-xl font-bold mb-4 flex items-center text-white"><span class="num-badge bg-emerald-500 text-white">2.2</span> Technology Adoption Models</h3>
+            
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <h4 class="text-sm font-bold text-emerald-300 mb-2">TAM (Davis, 1989)</h4>
+                <p class="text-[11px] text-slate-400 mb-2">Behavioral intention is driven by two primary cognitive beliefs:</p>
+                <div class="bg-slate-800 p-2 rounded mb-2 border-l-2 border-emerald-400">
+                  <strong class="text-xs text-white">1. Perceived Usefulness (PU):</strong> Belief that the system enhances job performance.
+                </div>
+                <div class="bg-slate-800 p-2 rounded border-l-2 border-emerald-400">
+                  <strong class="text-xs text-white">2. Perceived Ease of Use (PEOU):</strong> Expectation that the system is free of effort. Directly influences PU.
+                </div>
+              </div>
+              
+              <div>
+                <h4 class="text-sm font-bold text-teal-300 mb-2">UTAUT2 (Venkatesh, 2012)</h4>
+                <p class="text-[11px] text-slate-400 mb-2">Expands to consumer contexts. Key constructs driving adoption:</p>
+                <ul class="text-[10px] text-slate-300 space-y-1 list-disc pl-4">
+                  <li><strong>Performance Expectancy:</strong> Utility provided.</li>
+                  <li><strong>Effort Expectancy:</strong> Lowering onboarding friction.</li>
+                  <li><strong>Social Influence:</strong> Network effects & social proof.</li>
+                  <li><strong>Facilitating Conditions:</strong> Ecosystem compatibility.</li>
+                  <li><strong>Price Value:</strong> Trade-off between benefits/cost.</li>
+                  <li><strong>Habit:</strong> Ultimate goal for retention.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-10 overflow-hidden border-t-4 border-t-teal-500">
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-teal-600">2.3</span> Diffusion Dynamics & Crossing the Chasm</h3>
+        <p class="text-sm text-slate-600 mb-4">Rogers (1962) demonstrated adoption follows an S-shaped curve across 5 segments. Moore (1991) identified a strategic breakdown—<strong>"The Chasm"</strong>—between early adopters and the early majority.</p>
+        
+        <!-- CSS Chasm Graphic -->
+        <div class="chasm-container w-full max-w-3xl mx-auto mb-6">
+          <div class="chasm-block w-[15%]" style="height: 30px; background: #0284c7;">Innovators</div>
+          <div class="chasm-block w-[20%]" style="height: 60px; background: #0369a1;">Early Adopters<br><span class="text-[9px] font-normal">"Visionaries"</span></div>
+          
+          <div class="chasm-gap"></div>
+          
+          <div class="chasm-block w-[30%]" style="height: 120px; background: #10b981;">Early Majority<br><span class="text-[9px] font-normal">"Pragmatists"</span></div>
+          <div class="chasm-block w-[20%]" style="height: 80px; background: #059669;">Late Majority</div>
+          <div class="chasm-block w-[10%]" style="height: 40px; background: #047857;">Laggards</div>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-xs text-slate-700">
+          <p class="mb-2"><strong class="text-sky-700">Visionaries (Pre-Chasm):</strong> Tolerate bugs and lack of documentation to achieve radical competitive advantages.</p>
+          <p class="mb-2"><strong class="text-emerald-700">Pragmatists (Post-Chasm):</strong> Risk-averse. Require proven, standardized "whole products," strong support, and interoperability.</p>
+          <p><strong class="text-red-600">Strategic Failure:</strong> High-tech ventures die in the Chasm because marketing and product architectures that won the Visionaries fail to persuade the Pragmatists.</p>
+        </div>
+      </div>
+
+      <div class="case-box ch2-case shadow-xl">
+        <div class="flex items-center gap-3 mb-4 border-b border-slate-700 pb-4">
+          <div class="w-12 h-12 bg-emerald-500 rounded flex items-center justify-center text-white text-xl shadow-lg"><i class="fa-solid fa-stethoscope"></i></div>
+          <div>
+            <h3 class="text-xl font-bold text-white"><span class="text-emerald-400">2.4 Case Study:</span> GE Healthcare & Reverse Innovation</h3>
+            <p class="text-xs text-slate-400">Opportunity Identification via "Jobs-To-Be-Done" (JTBD).</p>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <h4 class="text-sm font-bold text-emerald-300 mb-2">1. The Market Context</h4>
+            <p class="text-xs text-slate-300">In the 2000s, traditional ultrasounds were $100k+ stationary consoles for Western hospitals. Rural China lacked infrastructure and budgets. GE deployed local engineers to design a compact, battery-powered device from scratch.</p>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-teal-300 mb-2">2. Overcoming Fixedness</h4>
+            <p class="text-xs text-slate-300">Engineers decoupled the screen from heavy hardware using laptop algorithms. Instead of a diagnostic station, they reframed it as a <em>"portable digital stethoscope"</em> prioritizing Perceived Ease of Use (TAM).</p>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-sky-300 mb-2">3. JTBD & Reverse Scale</h4>
+            <p class="text-xs text-slate-300">The <strong>Job-To-Be-Done</strong> wasn't "high-res scan"; it was "detect internal bleeding in 60 seconds." GE realized Western ambulances had the exact same need. They commercialized it globally as the <em>Vscan</em>, a prime example of <strong>Reverse Innovation</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter3" class="section-anchor bg-ch3 border-y border-amber-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-amber-600 font-bold tracking-widest uppercase text-xs bg-amber-100 px-2 py-1 rounded">Chapter 3</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Innovation Theories, Models, and R&D Processes</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Tracing the evolution from linear technology push to open innovation networks, and governing the pipeline through Stage-Gate systems and Frascati classifications.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        
+        <!-- 3.1 Generations -->
+        <div class="card h-full border-t-4 border-t-amber-500">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-amber-600">3.1</span> Evolution of Innovation Models (Rothwell)</h3>
+          <ul class="text-[11px] text-slate-700 space-y-3">
+            <li class="flex gap-2 items-start"><strong class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800">1G</strong> <div><strong>Technology Push:</strong> Linear post-WWII model. Scientific discovery automatically drives commercial development.</div></li>
+            <li class="flex gap-2 items-start"><strong class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800">2G</strong> <div><strong>Market Pull:</strong> 1960s model framing market needs as the primary engine for R&D.</div></li>
+            <li class="flex gap-2 items-start"><strong class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800">3G</strong> <div><strong>Coupling Model:</strong> Recognizes iterative feedback loops between R&D, manufacturing, and marketing.</div></li>
+            <li class="flex gap-2 items-start"><strong class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800">4G</strong> <div><strong>Integrated Model:</strong> Concurrent (parallel) engineering and early supplier integration to reduce cycle times.</div></li>
+            <li class="flex gap-2 items-start"><strong class="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded border border-amber-200">5G/6G</strong> <div><strong>Open Innovation (Chesbrough):</strong> <br><em>Inbound:</em> Sourcing external tech, startups, academic ideas.<br><em>Outbound:</em> Monetizing internal IP via licensing/spin-outs.</div></li>
+          </ul>
+        </div>
+
+        <!-- 3.2 Stage-Gate -->
+        <div class="flex flex-col gap-6">
+          <div class="card h-full">
+            <h3 class="text-lg font-bold mb-3 flex items-center"><span class="num-badge bg-amber-600">3.2</span> Stage-Gate Governance (Cooper)</h3>
+            <p class="text-[11px] text-slate-600 mb-3">A structured process control system to prevent capital loss on unviable initiatives by breaking development into discrete phases.</p>
+            <div class="grid grid-cols-2 gap-3 mb-3 text-[11px]">
+              <div class="bg-slate-50 p-2 rounded border border-slate-200"><strong>Stages:</strong> Cross-functional work areas (gather data, build prototypes, refine financials).</div>
+              <div class="bg-slate-50 p-2 rounded border border-slate-200"><strong>Gates:</strong> Quality control checkpoints where executives review deliverables.</div>
+            </div>
+            <div class="flex justify-between items-center bg-amber-50 p-2 rounded border border-amber-200 text-[10px] font-bold text-amber-900">
+              <span class="bg-emerald-200 px-2 py-1 rounded">1. GO</span>
+              <span class="bg-red-200 px-2 py-1 rounded">2. KILL</span>
+              <span class="bg-slate-200 px-2 py-1 rounded">3. HOLD</span>
+              <span class="bg-blue-200 px-2 py-1 rounded">4. RECYCLE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3.3 R&D Process & Metrics -->
+      <div class="card mb-10 overflow-hidden border-t-4 border-t-orange-400">
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-orange-500">3.3</span> The R&D Pipeline & Strategic Metrics</h3>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-2 border-b border-slate-100 pb-1">Frascati Manual Classification (OECD, 2015)</h4>
+            <div class="space-y-3 text-xs text-slate-700">
+              <div class="bg-slate-50 p-3 rounded border-l-2 border-orange-400">
+                <strong>1. Basic Research:</strong> Theoretical work to acquire new knowledge of underlying phenomena without direct commercial application in view. High failure rate, long horizons (10-20 years).
+              </div>
+              <div class="bg-slate-50 p-3 rounded border-l-2 border-amber-400">
+                <strong>2. Applied Research:</strong> Original investigation directed primarily toward a specific practical objective. Evaluates alternative routes to solve a defined problem.
+              </div>
+              <div class="bg-slate-50 p-3 rounded border-l-2 border-emerald-400">
+                <strong>3. Experimental Development:</strong> Systematic work drawing on research to produce new materials/devices or establish new processes prior to commercial manufacturing.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-2 border-b border-slate-100 pb-1">Key R&D Metrics & Economic Drivers</h4>
+            <div class="space-y-4">
+              <div>
+                <strong class="text-xs text-orange-800 block mb-1">R&D Intensity</strong>
+                <p class="text-[10px] text-slate-600 mb-1">Calculates total annual R&D expenditure as a percentage of total corporate revenues. High (12-25%) in tech/biotech; Low (1-3%) in retail/manufacturing.</p>
+                <code class="block bg-slate-900 text-orange-300 p-2 rounded text-[10px] font-mono shadow-inner">
+                  R&D Intensity = (R&D Expenditure / Total Sales Revenue) × 100
+                </code>
+              </div>
+              <div>
+                <strong class="text-xs text-emerald-800 block mb-1">Vitality Index (NPI Index)</strong>
+                <p class="text-[10px] text-slate-600 mb-1">Measures the revenue stream generated from newly launched products compared to overall enterprise revenues.</p>
+                <code class="block bg-slate-900 text-emerald-300 p-2 rounded text-[10px] font-mono shadow-inner">
+                  NPI Index = (Revenue from new products [last N yrs] / Total current revenue)
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-box ch3-case shadow-xl !bg-slate-900">
+        <div class="flex items-center gap-3 mb-4 border-b border-slate-700 pb-4">
+          <div class="w-12 h-12 bg-amber-500 rounded flex items-center justify-center text-white text-xl shadow-lg"><i class="fa-solid fa-vial-virus"></i></div>
+          <div>
+            <h3 class="text-xl font-bold text-white"><span class="text-amber-400">3.4 Case Study:</span> Pfizer & BioNTech (mRNA Vaccine)</h3>
+            <p class="text-xs text-slate-400">How basic research, applied engineering, and Open R&D networks converge to compress lifecycles.</p>
+          </div>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-4">
+          <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+            <h4 class="text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1">1. Basic Research</h4>
+            <p class="text-[10px] text-slate-400">For 20+ years, university researchers studied modifying mRNA to prevent immune destruction. No immediate target disease, just foundational IP.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+            <h4 class="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-1">2. Applied Research</h4>
+            <p class="text-[10px] text-slate-400">In early 2020, BioNTech directed its synthetic mRNA platform toward encoding the specific SARS-CoV-2 spike protein to trigger immune response.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 border-l-2 border-l-emerald-500">
+            <h4 class="text-[11px] font-bold text-emerald-300 uppercase tracking-wider mb-1">3. Open Network R&D</h4>
+            <p class="text-[10px] text-slate-400">BioNTech had the IP but lacked scale. Partnered with Pfizer, who deployed clinical trials network and scaled lipid nanoparticle manufacturing.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 border-l-2 border-l-sky-500">
+            <h4 class="text-[11px] font-bold text-sky-300 uppercase tracking-wider mb-1">4. Lifecycle Compression</h4>
+            <p class="text-[10px] text-slate-400">Executing trial phases concurrently (parallel processing 4G Model) compressed a traditional 10-year vaccine lifecycle down to 9 months.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter4" class="section-anchor bg-ch4 border-t border-purple-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-purple-600 font-bold tracking-widest uppercase text-xs bg-purple-100 px-2 py-1 rounded">Chapter 4</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Innovation Sources & Search Pipelines</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Moving beyond spontaneous creativity to systematically mine Drucker's seven sources, leverage Lead Users, and build open crowdsourcing ecosystems.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <!-- 4.1 Drucker's Sources -->
+        <div class="col-span-12 lg:col-span-7 card h-full border-t-4 border-t-purple-500">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-purple-600">4.1</span> Systematic Sources of Innovation (Drucker)</h3>
+          <p class="text-xs text-slate-600 mb-4">Peter Drucker (1985) categorized innovation sources into Internal Occurrences (within the firm/industry) and External Shifts (societal/macro environment).</p>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+              <h4 class="font-bold text-sm text-purple-900 mb-2 border-b border-purple-200 pb-1">Internal Sources</h4>
+              <ul class="text-[11px] text-slate-700 space-y-2 list-disc pl-3">
+                <li><strong>The Unexpected:</strong> Exploiting unexpected market successes/failures revealing unmapped needs.</li>
+                <li><strong>Incongruities:</strong> Gaps between what is assumed to be and what actually is.</li>
+                <li><strong>Process Needs:</strong> Innovating to solve a specific internal bottleneck.</li>
+                <li><strong>Industry Shifts:</strong> Exploiting rapid industry growth or regulatory disruptions.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+              <h4 class="font-bold text-sm text-indigo-900 mb-2 border-b border-indigo-200 pb-1">External Sources</h4>
+              <ul class="text-[11px] text-slate-700 space-y-2 list-disc pl-3">
+                <li><strong>Demographics:</strong> Tracking structural shifts in population size, age, income.</li>
+                <li><strong>Perception & Mood:</strong> Cultural shifts in how consumers view health, status, or ethics.</li>
+                <li><strong>New Knowledge:</strong> Commercializing scientific breakthroughs (Longest lead time, highest risk).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4.2 Advanced Search -->
+        <div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
+          <div class="card h-full">
+            <h3 class="text-lg font-bold mb-3 flex items-center"><span class="num-badge bg-purple-500">4.2</span> Advanced Search Methods</h3>
+            <div class="space-y-4">
+              <div class="border-l-2 border-indigo-400 pl-3">
+                <h4 class="font-bold text-xs text-slate-800">Lead User Analysis (von Hippel)</h4>
+                <p class="text-[10px] text-slate-600 mt-1">Users operating at the extreme edge of market boundaries who experience needs years before the general market and build custom prototypes.</p>
+              </div>
+              <div class="border-l-2 border-purple-400 pl-3">
+                <h4 class="font-bold text-xs text-slate-800">Crowdsourcing & Tournaments</h4>
+                <p class="text-[10px] text-slate-600 mt-1">Open calls to diverse crowds to solve technical challenges for cash prizes (e.g., Kaggle, InnoCentive) or customer co-creation portals.</p>
+              </div>
+              <div class="border-l-2 border-sky-400 pl-3">
+                <h4 class="font-bold text-xs text-slate-800">Technology Scouting</h4>
+                <p class="text-[10px] text-slate-600 mt-1">Peripheral vision scanning of "weak signals" and patent landscape mapping to track R&D priorities in adjacent domains.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-box ch4-case shadow-xl">
+        <div class="flex items-center gap-3 mb-4 border-b border-slate-700 pb-4">
+          <div class="w-12 h-12 bg-purple-500 rounded flex items-center justify-center text-white text-xl shadow-lg"><i class="fa-solid fa-cubes"></i></div>
+          <div>
+            <h3 class="text-xl font-bold text-white"><span class="text-purple-400">4.3 Case Study:</span> LEGO's Co-Creation Engine</h3>
+            <p class="text-xs text-slate-400">How external search mechanisms and Lead User communities revitalized a mature enterprise.</p>
+          </div>
+        </div>
+        
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div>
+            <h4 class="text-sm font-bold text-purple-300 mb-2">1. Recognizing the Incongruity</h4>
+            <p class="text-xs text-slate-300">In the 1990s, LEGO treated its product purely as a children's toy. An <em>incongruity</em> emerged: Adult Fans of LEGO (AFOLs) were hacking Mindstorms kits and writing custom code. Initially, LEGO sent legal notices.</p>
+          </div>
+          <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+            <h4 class="text-sm font-bold text-indigo-300 mb-2">2. Pivoting to Lead-Users</h4>
+            <p class="text-[11px] text-slate-300">Realizing these AFOLs were <strong>Lead Users</strong> spending thousands on advanced designs, LEGO shifted to open collaboration, inviting them to co-design kits and serve on advisory panels.</p>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-fuchsia-300 mb-2">3. Crowdsourcing Scale (LEGO Ideas)</h4>
+            <p class="text-xs text-slate-300">Launched a global platform where fans submit concepts. If a design gets 10,000 votes, it passes a Stage-Gate review. Approved creators receive 1% of net sales. This lowered market risk and generated massive hits.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-400 py-16 text-center border-t-4 border-sky-500">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border border-slate-700">
+        <i class="fa-solid fa-rocket text-4xl text-sky-400"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-white mb-6">Course Conclusion</h2>
+      <p class="text-base italic text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+        "Innovation is not an isolated event of creative genius. It is a systematic managerial capability that bridges the gap between scientific discovery and commercial diffusion through disciplined governance, global context awareness, and structured ideation."
+      </p>
+      <p class="text-xs text-slate-500 tracking-wider uppercase">
+        &copy; Master 2 Management Curriculum: Innovation Management
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

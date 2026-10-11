@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>E-business: Models, Technologies, and Algerian Context</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            ch1: '#fff1f2', // Light Rose
+            ch2: '#f0f9ff', // Light Sky Blue
+            ch3: '#fffbeb', // Light Amber
+            ch4: '#ecfdf5', // Light Emerald
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    
+    .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .section-anchor { scroll-margin-top: 70px; }
+    
+    .card { background: #ffffff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid rgba(0,0,0,0.05); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+    
+    .num-badge { display: inline-flex; align-items: center; justify-content: center; background: #1e293b; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-right: 10px; letter-spacing: 0.05em; }
+    
+    .data-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+    .data-table th { background: #f8fafc; font-weight: 600; text-align: left; padding: 14px 16px; border-bottom: 2px solid #e2e8f0; color: #0f172a; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .data-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; color: #475569; font-size: 0.9rem; line-height: 1.5; }
+    .data-table tr:last-child td { border-bottom: none; }
+    
+    .practice-box { background: #0f172a; color: #f8fafc; border-radius: 12px; padding: 24px; position: relative; overflow: hidden; }
+    .practice-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .practice-box.ch1-box::before { background: #f43f5e; }
+    .practice-box.ch2-box::before { background: #0ea5e9; }
+    .practice-box.ch3-box::before { background: #f59e0b; }
+    .practice-box.ch4-box::before { background: #10b981; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigo-200">
+
+  <nav class="glass-nav fixed w-full z-50 top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex-shrink-0 flex items-center gap-3">
+          <i class="fa-solid fa-globe text-indigo-600 text-2xl"></i>
+          <span class="font-bold text-lg tracking-tight text-slate-900 hidden md:block">E-business Curriculum</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#intro" class="text-slate-600 hover:text-indigo-600 px-2 py-2 text-sm font-semibold transition-colors">Course Info</a>
+          <a href="#chapter1" class="text-rose-600 hover:text-rose-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 1: Intro</a>
+          <a href="#chapter2" class="text-sky-600 hover:text-sky-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 2: Networks</a>
+          <a href="#chapter3" class="text-amber-600 hover:text-amber-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 3: Business Models</a>
+          <a href="#chapter4" class="text-emerald-600 hover:text-emerald-800 px-2 py-2 text-sm font-semibold transition-colors">Ch 4: IS-IT & E-payment</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header id="intro" class="section-anchor pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-6 uppercase tracking-wider border border-slate-200">
+      <i class="fa-solid fa-graduation-cap"></i> Université de la Formation Continue (UFC) | Bordj Bou Arreridj
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+      E-business: <br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-500">Models, Technologies, and Algerian Context</span>
+    </h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+      A comprehensive discovery module introducing the digital transformation of business. Explore information technology, e-business ontology, electronic payment security, and the unique challenges and regulations defining the Algerian digital economy.
+    </p>
+    <div class="mt-6 inline-flex justify-center gap-6 text-xs font-semibold text-slate-500 bg-slate-50 py-3 px-6 rounded-lg border border-slate-200">
+      <span><i class="fa-solid fa-book-open text-indigo-400 mr-2"></i>Discovery Unit</span>
+      <span><i class="fa-solid fa-star text-amber-400 mr-2"></i>Coefficient: 02</span>
+      <span><i class="fa-solid fa-award text-emerald-400 mr-2"></i>Credit: 03</span>
+    </div>
+  </header>
+
+  <section id="chapter1" class="section-anchor bg-ch1 border-y border-rose-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-rose-600 font-bold tracking-widest uppercase text-xs bg-rose-100 px-2 py-1 rounded">Chapter 1</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Introduction to e-Business</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Defining electronic business scopes, categorizing digital transactions, and analyzing the legal and structural challenges within the Algerian ecosystem.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        <!-- Concepts -->
+        <div class="card border-l-4 border-l-rose-500">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-rose-600">1.1</span> E-business vs. E-commerce vs. Social Commerce</h3>
+          <p class="text-sm text-slate-600 mb-6"><strong>E-business</strong> (coined by IBM in 1996) is the use of digital technologies to transform <em>all</em> key processes (buying, selling, internal coordination). <strong>E-commerce</strong> is specifically the buying and selling portion.</p>
+          
+          <div class="space-y-4">
+            <div class="bg-rose-50 p-3 rounded-lg border border-rose-100">
+              <h4 class="text-sm font-bold text-slate-800 mb-1">E-business</h4>
+              <p class="text-xs text-slate-600"><strong>Scope:</strong> All processes, internal/external. <strong>Place:</strong> Intranets, ERPs, Extranets. <em>Ex: A bank managing transactions via SATIM.</em></p>
+            </div>
+            <div class="bg-white p-3 rounded-lg border border-slate-200">
+              <h4 class="text-sm font-bold text-slate-800 mb-1">E-commerce</h4>
+              <p class="text-xs text-slate-600"><strong>Scope:</strong> Commercial transactions. <strong>Place:</strong> Merchant sites. <em>Ex: Paying on an approved DZ site via CIB.</em></p>
+            </div>
+            <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100">
+              <h4 class="text-sm font-bold text-slate-800 mb-1">Social Commerce</h4>
+              <p class="text-xs text-slate-600"><strong>Scope:</strong> Transactions inside social apps. Driven by community trust (influencers, live video). <em>Ex: Buying via Facebook/TikTok with Cash on Delivery.</em></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories & AI -->
+        <div class="flex flex-col gap-6">
+          <div class="card h-full">
+            <h3 class="text-lg font-bold mb-4 flex items-center"><span class="num-badge bg-rose-600">2</span> Main Transaction Categories</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="font-bold text-sm text-indigo-700">B2B <span class="text-[10px] font-normal text-slate-500">(Business-to-Business)</span></div>
+                <p class="text-[10px] text-slate-600 mt-1">Largest by value. Wholesaler ordering from producer.</p>
+              </div>
+              <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="font-bold text-sm text-emerald-700">B2C <span class="text-[10px] font-normal text-slate-500">(Business-to-Consumer)</span></div>
+                <p class="text-[10px] text-slate-600 mt-1">Most visible. Online stores selling directly to public.</p>
+              </div>
+              <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="font-bold text-sm text-amber-700">C2C <span class="text-[10px] font-normal text-slate-500">(Consumer-to-Consumer)</span></div>
+                <p class="text-[10px] text-slate-600 mt-1">Individuals trading. <em>Ex: Ouedkniss classifieds.</em></p>
+              </div>
+              <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="font-bold text-sm text-sky-700">G2C <span class="text-[10px] font-normal text-slate-500">(Gov-to-Citizen)</span></div>
+                <p class="text-[10px] text-slate-600 mt-1">Public services. <em>Ex: Requesting civil documents.</em></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-slate-900 text-white border-none">
+            <h3 class="text-sm font-bold text-rose-300 mb-2 flex items-center"><span class="num-badge bg-rose-600 text-white !text-[10px]">3</span> AI in E-business</h3>
+            <ul class="text-[11px] text-slate-300 space-y-2">
+              <li><strong class="text-white">Recommendation Systems:</strong> Collaborative, content-based, or hybrid filtering to drive engagement.</li>
+              <li><strong class="text-white">Chatbots:</strong> Natural language order tracking/support.</li>
+              <li><strong class="text-white">Predictive Analytics:</strong> Demand forecasting and dynamic pricing.</li>
+              <li><strong class="text-red-400">Risks:</strong> Algorithmic bias, privacy (regulated by Law 18-07), and explainability.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-10 overflow-hidden border-t-4 border-t-rose-400">
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-rose-600">5 & 6</span> The Algerian Legal Framework & E-commerce Challenges</h3>
+        
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div>
+            <p class="text-xs text-slate-600 mb-3">Any student of e-business in Algeria must understand these three fundamental texts:</p>
+            <table class="data-table !mb-0 text-[11px]">
+              <thead><tr><th class="w-1/3 !py-2">Legal Text</th><th class="!py-2">Key Obligations & Effects</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="font-bold text-slate-800 !py-2 bg-slate-50">Law 18-05 (May 2018)<br><span class="font-normal text-slate-500 text-[10px]">Electronic Commerce</span></td>
+                  <td class="!py-2">Supplier must be on commercial register. Website must be hosted in Algeria under a <strong>.dz</strong> domain. Must use approved payment systems. Bans online sale of alcohol, pharma, and intellectual property.</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-slate-800 !py-2 bg-slate-50">Law 18-07 (June 2018)<br><span class="font-normal text-slate-500 text-[10px]">Data Protection</span></td>
+                  <td class="!py-2">Requires transparency, customer consent, and prior declaration to the <strong>ANPDP</strong> (installed Aug 2022). Mandates strong security measures.</td>
+                </tr>
+                <tr>
+                  <td class="font-bold text-slate-800 !py-2 bg-slate-50">Law 25-10 (July 2025)<br><span class="font-normal text-slate-500 text-[10px]">Virtual Currencies</span></td>
+                  <td class="!py-2 text-red-600">Prohibits purchase, sale, use, and possession of virtual currency. Adds criminal penalties for mining or operating exchange platforms.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-slate-800 mb-3">Why is E-commerce Limited Despite 76.9% Internet Penetration?</h4>
+            <div class="grid grid-cols-2 gap-3 text-[10px]">
+              <div class="bg-rose-50 p-2 rounded border border-rose-100"><strong class="block text-rose-800 mb-1">Informal Economy</strong> Merchants avoid card payments to keep turnover invisible/untraceable.</div>
+              <div class="bg-rose-50 p-2 rounded border border-rose-100"><strong class="block text-rose-800 mb-1">Cost of Terminals</strong> High perceived cost (commission, bank formalities) for low-margin retailers.</div>
+              <div class="bg-rose-50 p-2 rounded border border-rose-100"><strong class="block text-rose-800 mb-1">Habit & Trust</strong> Consumers prefer Cash on Delivery (COD) to see the product before paying.</div>
+              <div class="bg-rose-50 p-2 rounded border border-rose-100"><strong class="block text-rose-800 mb-1">Logistics/Addressing</strong> Imprecise addressing across a vast territory increases failed deliveries.</div>
+              <div class="bg-rose-50 p-2 rounded border border-rose-100"><strong class="block text-rose-800 mb-1">Digital Literacy</strong> Smartphone use does not equal secure online banking confidence.</div>
+              <div class="bg-rose-50 p-2 rounded border border-rose-100"><strong class="block text-rose-800 mb-1">Regulatory/Trade</strong> Import restrictions limit the variety of products offered legally online.</div>
+            </div>
+            <p class="text-[10px] text-slate-500 italic mt-3">Despite this, 2025 saw a 179% growth in card payments, indicating a market in transition.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Activity 1 -->
+      <div class="practice-box ch1-box shadow-lg">
+        <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2 flex items-center">
+          <i class="fa-solid fa-file-pen text-rose-400 mr-3"></i> Formative Practice Activity 1
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Part B: Term Matching</h4>
+            <ul class="text-xs text-slate-300 space-y-2 font-mono">
+              <li>1. B2C &rarr; <span class="text-emerald-300">b. Company selling to final consumer</span></li>
+              <li>2. C2C &rarr; <span class="text-emerald-300">e. Individual selling to individual via platform</span></li>
+              <li>3. G2C &rarr; <span class="text-emerald-300">d. Public administration delivering service online</span></li>
+              <li>4. Rec. System &rarr; <span class="text-emerald-300">a. Algorithm suggesting based on past behavior</span></li>
+              <li>5. Cash on Delivery &rarr; <span class="text-emerald-300">c. Payment made to agent when goods arrive</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Part A: True or False</h4>
+            <div class="space-y-2 text-xs text-slate-300">
+              <p><strong>1. Every e-commerce activity is an e-business activity.</strong> <br><span class="text-emerald-400 font-bold">True:</span> E-commerce is a subset of the broader e-business ecosystem.</p>
+              <p><strong>4. Law 18-07 governs e-commerce.</strong> <br><span class="text-red-400 font-bold">False:</span> Law 18-07 governs personal data protection; Law 18-05 governs e-commerce.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter2" class="section-anchor bg-ch2 border-y border-sky-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-sky-600 font-bold tracking-widest uppercase text-xs bg-sky-100 px-2 py-1 rounded">Chapter 2</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">E-business Network Technology Basis</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Demystifying the underlying protocols, the client-server architecture, and the crucial security mechanisms defending electronic transactions.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-10">
+        
+        <!-- 1 & 2 Networks -->
+        <div class="col-span-12 lg:col-span-4 card h-full">
+          <h3 class="text-lg font-bold mb-4 flex items-center"><span class="num-badge bg-sky-600">1</span> The Three Networks</h3>
+          <p class="text-xs text-slate-600 mb-4">The same technologies build different networks distinguished by <em>who</em> is allowed to enter.</p>
+          <div class="space-y-3">
+            <div class="border-l-2 border-sky-400 pl-3">
+              <h4 class="font-bold text-sm text-slate-800">Internet</h4>
+              <p class="text-[11px] text-slate-600">Open to everyone. Public presence, online sales. <em>(The public square)</em>.</p>
+            </div>
+            <div class="border-l-2 border-indigo-400 pl-3">
+              <h4 class="font-bold text-sm text-slate-800">Intranet</h4>
+              <p class="text-[11px] text-slate-600">Only members of one organization. Internal HR, docs. <em>(Inside a building)</em>.</p>
+            </div>
+            <div class="border-l-2 border-emerald-400 pl-3">
+              <h4 class="font-bold text-sm text-slate-800">Extranet</h4>
+              <p class="text-[11px] text-slate-600">Selected external partners with controlled rights. Joint planning. <em>(A locked room for visitors)</em>.</p>
+            </div>
+          </div>
+          <div class="mt-6 p-3 bg-slate-100 rounded text-xs font-semibold text-slate-700 border border-slate-200">
+            <span class="text-sky-600 mr-1"><i class="fa-solid fa-triangle-exclamation"></i> Note:</span> The World Wide Web is NOT the Internet. The Web (HTTP/URLs) is just one service running on the physical/logical Internet infrastructure, alongside e-mail and file transfer.
+          </div>
+        </div>
+
+        <!-- 3 & 4 Architecture and Protocols -->
+        <div class="col-span-12 lg:col-span-8 flex flex-col gap-6">
+          <div class="card bg-slate-900 text-white border-none">
+            <h3 class="text-lg font-bold mb-4 flex items-center text-white"><span class="num-badge bg-sky-500">3</span> The 3-Tier Client-Server Model</h3>
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                <i class="fa-solid fa-desktop text-sky-400 text-xl mb-2"></i>
+                <h4 class="text-xs font-bold text-sky-200">1. Presentation Tier</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Interface seen by user (HTML, CSS). Collects input.</p>
+              </div>
+              <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 relative">
+                <i class="fa-solid fa-arrows-left-right text-slate-600 absolute top-1/2 -left-3 transform -translate-y-1/2"></i>
+                <i class="fa-solid fa-microchip text-indigo-400 text-xl mb-2"></i>
+                <h4 class="text-xs font-bold text-indigo-200">2. Application Tier</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Business logic (JS, Server code). Calculates price, discounts.</p>
+              </div>
+              <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 relative">
+                <i class="fa-solid fa-arrows-left-right text-slate-600 absolute top-1/2 -left-3 transform -translate-y-1/2"></i>
+                <i class="fa-solid fa-database text-emerald-400 text-xl mb-2"></i>
+                <h4 class="text-xs font-bold text-emerald-200">3. Data Tier</h4>
+                <p class="text-[10px] text-slate-400 mt-1">Databases storing products & stock. Strictly controlled.</p>
+              </div>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-3 text-center"><strong>Advantages:</strong> Security (DB hidden from net), Scalability, and Maintainability.</p>
+          </div>
+
+          <div class="card border-t-4 border-sky-400">
+            <h3 class="text-sm font-bold mb-3 flex items-center"><span class="num-badge bg-sky-600 !text-[10px]">4</span> TCP/IP Protocol Suite & The 5-Step Load</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <table class="w-full text-[10px] text-left border-collapse">
+                  <tr class="border-b border-slate-200"><th class="py-1">Layer</th><th class="py-1">Protocols</th><th class="py-1">E-biz Role</th></tr>
+                  <tr class="border-b border-slate-100"><td class="font-bold text-sky-800">Application</td><td>HTTP, DNS</td><td>Displays shop, resolves names</td></tr>
+                  <tr class="border-b border-slate-100"><td class="font-bold text-indigo-800">Transport</td><td>TCP</td><td>Ensures order forms aren't lost</td></tr>
+                  <tr class="border-b border-slate-100"><td class="font-bold text-emerald-800">Internet</td><td>IP</td><td>Routes packets across networks</td></tr>
+                  <tr><td class="font-bold text-slate-800">Net Access</td><td>Wi-Fi, 4G</td><td>Physical medium speed</td></tr>
+                </table>
+              </div>
+              <div class="bg-sky-50 p-3 rounded border border-sky-100">
+                <h4 class="text-[10px] font-bold text-sky-800 mb-1 uppercase tracking-wider">Opening an Online Shop</h4>
+                <ol class="list-decimal pl-4 text-[10px] text-slate-700 space-y-1">
+                  <li><strong>DNS Resolution:</strong> Translate .dz name to numeric IP.</li>
+                  <li><strong>TCP Connection:</strong> Open reliable connection.</li>
+                  <li><strong>TLS Handshake:</strong> Agree on encryption keys (Padlock).</li>
+                  <li><strong>HTTP Request:</strong> Browser requests page; server builds it.</li>
+                  <li><strong>Display:</strong> Page renders, user interacts.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-10 border-t-4 border-t-red-400">
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-red-500">6</span> Security: Threats & Countermeasures</h3>
+        <p class="text-xs text-slate-600 mb-4">E-business pursues 5 goals: <strong>Confidentiality, Integrity, Availability, Authentication,</strong> and <strong>Non-repudiation</strong>.</p>
+        
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+            <h4 class="font-bold text-xs text-red-700 mb-1 flex items-center gap-2"><i class="fa-solid fa-user-secret"></i> Interception</h4>
+            <p class="text-[10px] text-slate-600 mb-2">Attacker reads data on network.</p>
+            <div class="bg-emerald-50 text-emerald-800 p-1.5 rounded text-[9px] font-bold uppercase">Defense: Encryption (SSL/TLS / HTTPS)</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+            <h4 class="font-bold text-xs text-red-700 mb-1 flex items-center gap-2"><i class="fa-solid fa-fish"></i> Phishing</h4>
+            <p class="text-[10px] text-slate-600 mb-2">False message imitates bank.</p>
+            <div class="bg-emerald-50 text-emerald-800 p-1.5 rounded text-[9px] font-bold uppercase">Defense: User education, One-Time Passwords (OTP)</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+            <h4 class="font-bold text-xs text-red-700 mb-1 flex items-center gap-2"><i class="fa-solid fa-credit-card"></i> Card-not-present fraud</h4>
+            <p class="text-[10px] text-slate-600 mb-2">Stolen numbers used online.</p>
+            <div class="bg-emerald-50 text-emerald-800 p-1.5 rounded text-[9px] font-bold uppercase">Defense: Tokenisation, 3-D Secure, Dynamic OTP</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+            <h4 class="font-bold text-xs text-red-700 mb-1 flex items-center gap-2"><i class="fa-solid fa-skull"></i> Malware / Ransomware</h4>
+            <p class="text-[10px] text-slate-600 mb-2">Software blocks company data.</p>
+            <div class="bg-emerald-50 text-emerald-800 p-1.5 rounded text-[9px] font-bold uppercase">Defense: Offline backups, restricted rights</div>
+          </div>
+          <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+            <h4 class="font-bold text-xs text-red-700 mb-1 flex items-center gap-2"><i class="fa-solid fa-traffic-light"></i> Denial of Service (DoS)</h4>
+            <p class="text-[10px] text-slate-600 mb-2">Server flooded with requests.</p>
+            <div class="bg-emerald-50 text-emerald-800 p-1.5 rounded text-[9px] font-bold uppercase">Defense: Traffic filtering, scalable hosting</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-lg border border-slate-300">
+            <h4 class="font-bold text-xs text-slate-800 mb-1"><i class="fa-solid fa-gavel text-slate-500 mr-2"></i> Legal Obligations (Law 18-07)</h4>
+            <p class="text-[10px] text-slate-600">Must use appropriate tech measures (HTTPS, Access Control), collect minimal data, and declare processing to ANPDP.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="chapter3" class="section-anchor bg-ch3 border-y border-amber-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-amber-600 font-bold tracking-widest uppercase text-xs bg-amber-100 px-2 py-1 rounded">Chapter 3</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">e-Business Model Ontology / Unbundling</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Analyzing the architecture of value creation, the 9 building blocks of the Canvas, and why electronic networks force corporations to unbundle their core activities.</p>
+      </div>
+
+      <!-- Canvas -->
+      <div class="card mb-10 overflow-hidden border-t-4 border-t-amber-500">
+        <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-amber-600">2</span> The Business Model Canvas (Osterwalder & Pigneur, 2010)</h3>
+        <p class="text-sm text-slate-600 mb-6">A business model describes the logic by which an organization creates, delivers, and captures value. It is <strong>not</strong> a strategy (which is competitive positioning). The Canvas maps 4 pillars into 9 blocks.</p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div class="bg-amber-50 p-4 rounded border border-amber-200">
+            <h4 class="text-xs font-bold text-amber-900 mb-2 uppercase tracking-wider">Product Innovation</h4>
+            <ul class="text-[11px] text-slate-700 space-y-1">
+              <li><strong>Value Propositions:</strong> Problem solved / need satisfied. <em>(Authentic regional crafts)</em></li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border border-blue-200">
+            <h4 class="text-xs font-bold text-blue-900 mb-2 uppercase tracking-wider">Customer Relationship</h4>
+            <ul class="text-[11px] text-slate-700 space-y-1">
+              <li><strong>Customer Segments:</strong> For whom?</li>
+              <li><strong>Channels:</strong> How do we reach them?</li>
+              <li><strong>Customer Relationships:</strong> Trust mechanisms.</li>
+            </ul>
+          </div>
+          <div class="bg-emerald-50 p-4 rounded border border-emerald-200">
+            <h4 class="text-xs font-bold text-emerald-900 mb-2 uppercase tracking-wider">Infrastructure Mgt</h4>
+            <ul class="text-[11px] text-slate-700 space-y-1">
+              <li><strong>Key Activities:</strong> What must we do?</li>
+              <li><strong>Key Resources:</strong> What must we own?</li>
+              <li><strong>Key Partnerships:</strong> Who supplies us?</li>
+            </ul>
+          </div>
+          <div class="bg-rose-50 p-4 rounded border border-rose-200">
+            <h4 class="text-xs font-bold text-rose-900 mb-2 uppercase tracking-wider">Financial Aspects</h4>
+            <ul class="text-[11px] text-slate-700 space-y-1">
+              <li><strong>Revenue Streams:</strong> What users pay for.</li>
+              <li><strong>Cost Structure:</strong> Most important costs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unbundling -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        
+        <div class="card">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-amber-600">3</span> Unbundling the Corporation (Hagel & Singer)</h3>
+          <p class="text-xs text-slate-600 mb-4">Historically, high <strong>interaction costs</strong> (searching, negotiating, coordinating) kept three conflicting core businesses bundled inside one company. Electronic networks reduce these costs, allowing each activity to unbundle and specialize.</p>
+          
+          <table class="w-full text-[10px] text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-300"><th class="p-2">Core Business</th><th class="p-2">Economic Driver</th><th class="p-2">Culture</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-blue-700">Customer Relationship Mgt</td>
+                <td class="p-2"><strong>Economies of scope:</strong> More products to same customer.</td>
+                <td class="p-2">Service-oriented, relational.</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-emerald-700">Product Innovation</td>
+                <td class="p-2"><strong>Speed and talent:</strong> Being first > being large.</td>
+                <td class="p-2">Creative, risk-tolerant.</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold text-amber-700">Infrastructure Mgt</td>
+                <td class="p-2"><strong>Economies of scale:</strong> High fixed costs / large volume.</td>
+                <td class="p-2">Standardized, cost-focused.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-[10px] font-semibold text-slate-500 mt-2 text-center uppercase tracking-widest">&rarr; REBUNDLING &rarr;</p>
+          <p class="text-[10px] text-slate-500 text-center">Scale players dominate infrastructure/customers; small firms handle innovation.</p>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div class="card bg-slate-900 text-white h-full border-none">
+            <h3 class="text-sm font-bold text-amber-300 mb-3 flex items-center"><span class="num-badge bg-amber-600 text-white !text-[10px]">3.2</span> Algerian Examples</h3>
+            <div class="space-y-4">
+              <div class="bg-slate-800 p-3 rounded border-l-4 border-blue-500">
+                <h4 class="font-bold text-xs text-white">Ouedkniss</h4>
+                <p class="text-[11px] text-slate-300 mt-1">Essentially a <strong>Customer-Relationship business</strong>. Value lies in audience size and trust. Driven by economies of scope.</p>
+              </div>
+              <div class="bg-slate-800 p-3 rounded border-l-4 border-amber-500">
+                <h4 class="font-bold text-xs text-white">SATIM</h4>
+                <p class="text-[11px] text-slate-300 mt-1">A pure <strong>Infrastructure business</strong>. Operates national card switch. Success measured by reliability and low unit cost of transactions.</p>
+              </div>
+              <div class="bg-slate-800 p-3 rounded border-l-4 border-emerald-500">
+                <h4 class="font-bold text-xs text-white">Yassir</h4>
+                <p class="text-[11px] text-slate-300 mt-1">A hybrid combining Customer-Relationship (the app interface/users) with Infrastructure (the fleet dispatching system).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="chapter4" class="section-anchor bg-ch4 border-t border-emerald-100 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-12">
+        <span class="text-emerald-600 font-bold tracking-widest uppercase text-xs bg-emerald-100 px-2 py-1 rounded">Chapter 4</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-3 mb-4">IS-IT Models & E-payment</h2>
+        <p class="text-slate-700 max-w-3xl text-lg">Aligning technology with business strategy, mapping the Algerian payment ecosystem, and securing the step-by-step flow of online card transactions.</p>
+      </div>
+
+      <!-- IS vs IT & Strategic Alignment -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        <div class="card">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-emerald-600">1 & 2</span> IT vs. IS & Strategic Alignment</h3>
+          <p class="text-[11px] text-slate-600 mb-4 border-l-4 border-emerald-400 pl-3"><strong>IT (Information Technology):</strong> The tools (hardware, networks).<br><strong>IS (Information System):</strong> IT + users + procedures + rules. <em>Buying technology does not automatically create a working IS (e.g., unused POS terminals).</em></p>
+          
+          <h4 class="text-sm font-bold text-slate-800 mb-2">Strategic Alignment Model (Henderson & Venkatraman)</h4>
+          <div class="grid grid-cols-2 grid-rows-2 gap-2 text-[10px]">
+            <div class="bg-indigo-50 p-2 rounded border border-indigo-200">
+              <strong class="text-indigo-800 block mb-1">Business Strategy (External)</strong>
+              Scope, distinctive competences, partnerships.
+            </div>
+            <div class="bg-indigo-100 p-2 rounded border border-indigo-300">
+              <strong class="text-indigo-900 block mb-1">Org Infrastructure (Internal)</strong>
+              Structure, procedures, staff skills.
+            </div>
+            <div class="bg-sky-50 p-2 rounded border border-sky-200">
+              <strong class="text-sky-800 block mb-1">IT Strategy (External)</strong>
+              Tech scope, governance, sourcing choices.
+            </div>
+            <div class="bg-sky-100 p-2 rounded border border-sky-300">
+              <strong class="text-sky-900 block mb-1">IT Infrastructure (Internal)</strong>
+              Architecture, apps, data.
+            </div>
+          </div>
+          <p class="text-[10px] text-slate-500 mt-2">Requires <strong>Strategic Fit</strong> (External to Internal) and <strong>Functional Integration</strong> (Business to Tech).</p>
+        </div>
+
+        <div class="card border-t-4 border-emerald-500">
+          <h3 class="text-xl font-bold mb-4 flex items-center"><span class="num-badge bg-emerald-600">3.1</span> The Algerian Payment Ecosystem</h3>
+          <table class="w-full text-[11px] text-left border-collapse">
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-slate-800">CIB card</td>
+                <td class="p-2 text-slate-600">Domestic interbank card issued by banks.</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-slate-800">Edahabia</td>
+                <td class="p-2 text-slate-600">Issued by Algérie Poste. Most widely held in country.</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-slate-800">SATIM</td>
+                <td class="p-2 text-slate-600">Interbank operator. Runs national switch & online payment platform.</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-slate-800">GIE Monétique</td>
+                <td class="p-2 text-slate-600">Organizes, develops, and monitors the national system.</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold text-slate-800">Visa / Mastercard</td>
+                <td class="p-2 text-slate-600">Accessible for travel allowance (750 EUR) per 2026 regulations.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Online Card Payment Flow -->
+      <div class="card mb-10 bg-slate-50 border border-slate-200">
+        <h3 class="text-xl font-bold mb-6 text-center"><span class="num-badge bg-emerald-600">4</span> Step-by-Step Online Card Payment & Security</h3>
+        
+        <div class="flex flex-col space-y-2 max-w-3xl mx-auto">
+          <div class="flex bg-white p-3 rounded shadow-sm border border-slate-200 items-center">
+            <div class="w-8 h-8 bg-slate-200 rounded-full flex justify-center items-center font-bold text-slate-600 mr-4 text-xs shrink-0">1</div>
+            <div class="flex-1 text-xs"><strong class="block text-slate-800">Order:</strong> Customer confirms basket. Protected by <span class="font-bold text-emerald-600">TLS (Encryption)</span> in transit.</div>
+          </div>
+          <div class="flex bg-white p-3 rounded shadow-sm border border-slate-200 items-center">
+            <div class="w-8 h-8 bg-slate-200 rounded-full flex justify-center items-center font-bold text-slate-600 mr-4 text-xs shrink-0">2</div>
+            <div class="flex-1 text-xs"><strong class="block text-slate-800">Redirection to Gateway:</strong> Merchant never stores card. Protected by <span class="font-bold text-emerald-600">Tokenisation</span>.</div>
+          </div>
+          <div class="flex bg-white p-3 rounded shadow-sm border border-slate-200 items-center border-l-4 border-l-emerald-500">
+            <div class="w-8 h-8 bg-emerald-100 rounded-full flex justify-center items-center font-bold text-emerald-600 mr-4 text-xs shrink-0">3</div>
+            <div class="flex-1 text-xs"><strong class="block text-slate-800">Authentication:</strong> Cardholder proves identity to prevent card-not-present fraud. Protected by <span class="font-bold text-emerald-600">3-D Secure / OTP</span> (Non-repudiation).</div>
+          </div>
+          <div class="flex bg-white p-3 rounded shadow-sm border border-slate-200 items-center">
+            <div class="w-8 h-8 bg-slate-200 rounded-full flex justify-center items-center font-bold text-slate-600 mr-4 text-xs shrink-0">4</div>
+            <div class="flex-1 text-xs"><strong class="block text-slate-800">Authorisation:</strong> Request travels through switch to issuing bank to check balance. Guarded by <span class="font-bold text-emerald-600">Fraud scoring AI</span>.</div>
+          </div>
+          <div class="flex bg-white p-3 rounded shadow-sm border border-slate-200 items-center">
+            <div class="w-8 h-8 bg-slate-200 rounded-full flex justify-center items-center font-bold text-slate-600 mr-4 text-xs shrink-0">5</div>
+            <div class="flex-1 text-xs"><strong class="block text-slate-800">Confirmation & 6. Settlement:</strong> Merchant confirms order. Funds transferred later minus commission. Ultimate trust backed by <span class="font-bold text-emerald-600">Chargeback</span> procedures.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crypto vs CBDC & Practice -->
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div class="card border-t-4 border-emerald-400">
+          <h3 class="text-lg font-bold mb-4 flex items-center"><span class="num-badge bg-emerald-600">5</span> Virtual Currencies vs. CBDC</h3>
+          <table class="w-full text-[10px] text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-300"><th class="p-2">Feature</th><th class="p-2">Cryptocurrency</th><th class="p-2 text-emerald-700">CBDC (Digital Currency)</th></tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-slate-800">Issuer</td>
+                <td class="p-2 text-slate-600">No central issuer (Blockchain protocol)</td>
+                <td class="p-2 text-emerald-700 font-semibold">The central bank of a country</td>
+              </tr>
+              <tr class="border-b border-slate-100">
+                <td class="p-2 font-bold text-slate-800">Value</td>
+                <td class="p-2 text-slate-600 text-red-500">Highly volatile</td>
+                <td class="p-2 text-emerald-700 font-semibold">Equal to national currency</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold text-slate-800">Status in Algeria</td>
+                <td class="p-2 text-red-600 font-bold">Prohibited (Law 25-10, Art 117)</td>
+                <td class="p-2 text-emerald-700 font-semibold">Project under study (Digital Dinar)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="practice-box ch4-box shadow-xl">
+          <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2 flex items-center">
+            <i class="fa-solid fa-file-pen text-emerald-400 mr-3"></i> Chapter 4 Formative Activity
+          </h3>
+          <div class="space-y-4 text-xs text-slate-300">
+            <div>
+              <p class="font-bold text-slate-200">Q: Replacing a card number by a substitute value that is useless if intercepted is called?</p>
+              <p class="text-emerald-400 font-mono mt-1">&rarr; Tokenisation</p>
+            </div>
+            <div>
+              <p class="font-bold text-slate-200">Q: The Edahabia card is issued by?</p>
+              <p class="text-emerald-400 font-mono mt-1">&rarr; Algérie Poste</p>
+            </div>
+            <div>
+              <p class="font-bold text-slate-200">Q: A central bank digital currency is issued by?</p>
+              <p class="text-emerald-400 font-mono mt-1">&rarr; The central bank of a country</p>
+            </div>
+            <div class="border-t border-slate-700 pt-3">
+              <p class="font-bold text-amber-300">Application Note:</p>
+              <p class="text-[10px] text-slate-400 mt-1">If an Algerian bank offers Visa cards (Business Strategy) and connects to Visa networks (IT Strategy), but branch staff cannot explain the product (Org Infrastructure failure), the product will fail due to lack of <strong>Strategic Fit</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 text-center border-t-4 border-indigo-500">
+    <div class="max-w-4xl mx-auto px-4">
+      <i class="fa-solid fa-globe text-4xl text-indigo-500 mb-4"></i>
+      <h2 class="text-2xl font-bold text-white mb-4">Discovery Module Complete</h2>
+      <p class="text-sm italic mb-6 leading-relaxed max-w-2xl mx-auto">
+        "E-business is not simply the deployment of technology; it requires the strategic alignment of business models, organizational structures, and robust security frameworks to create value in the digital economy."
+      </p>
+      <p class="text-[10px] text-slate-500 uppercase tracking-widest">
+        &copy; Université de la Formation Continue | Designed for Master 2 S3
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
